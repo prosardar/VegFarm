@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("VerFarm.Kernel.Core")]
+[assembly: AssemblyTitle("VerFarm.Kernel.BL")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("VerFarm.Kernel.Core")]
+[assembly: AssemblyProduct("VerFarm.Kernel.BL")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("8805b679-41dc-4be0-87e5-ae897003349d")]
+[assembly: Guid("48a64eb2-3899-4025-bedb-903544f75d62")]
 
 // Сведения о версии сборки состоят из следующих четырех значений:
 //

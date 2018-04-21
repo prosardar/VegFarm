@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{EFB40F6F-CE7E-4CF5-9C91-5FEC001314D2}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>VegFarmServ</RootNamespace>
+    <RootNamespace>VegFarm</RootNamespace>
     <AssemblyName>VegFarmServ</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
