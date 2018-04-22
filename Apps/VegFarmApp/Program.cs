@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.Skins;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,7 +15,11 @@ namespace VegFarm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+
+            if (new LoginForm().ShowDialog() == DialogResult.OK)
+            {
+                Application.Run(new MainForm());
+            }
         }
     }
 }

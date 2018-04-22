@@ -25,6 +25,38 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "Kernel\BL\BL.csproj",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Kernel\Model\Model.csproj", "{F5412259-F740-4AEC-B468-2910B7EA2D2E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DevExpress", "DevExpress", "{122A042B-C815-47D7-94E4-A44F9FBF3694}"
+	ProjectSection(SolutionItems) = preProject
+		Libs\DevExpress\DevExpress.Data.v15.2.dll = Libs\DevExpress\DevExpress.Data.v15.2.dll
+		Libs\DevExpress\DevExpress.Data.v15.2.xml = Libs\DevExpress\DevExpress.Data.v15.2.xml
+		Libs\DevExpress\DevExpress.Printing.v15.2.Core.dll = Libs\DevExpress\DevExpress.Printing.v15.2.Core.dll
+		Libs\DevExpress\DevExpress.Printing.v15.2.Core.xml = Libs\DevExpress\DevExpress.Printing.v15.2.Core.xml
+		Libs\DevExpress\DevExpress.Sparkline.v15.2.Core.dll = Libs\DevExpress\DevExpress.Sparkline.v15.2.Core.dll
+		Libs\DevExpress\DevExpress.Sparkline.v15.2.Core.xml = Libs\DevExpress\DevExpress.Sparkline.v15.2.Core.xml
+		Libs\DevExpress\DevExpress.Utils.v15.2.dll = Libs\DevExpress\DevExpress.Utils.v15.2.dll
+		Libs\DevExpress\DevExpress.Utils.v15.2.xml = Libs\DevExpress\DevExpress.Utils.v15.2.xml
+		Libs\DevExpress\DevExpress.XtraBars.v15.2.dll = Libs\DevExpress\DevExpress.XtraBars.v15.2.dll
+		Libs\DevExpress\DevExpress.XtraBars.v15.2.xml = Libs\DevExpress\DevExpress.XtraBars.v15.2.xml
+		Libs\DevExpress\DevExpress.XtraEditors.v15.2.dll = Libs\DevExpress\DevExpress.XtraEditors.v15.2.dll
+		Libs\DevExpress\DevExpress.XtraEditors.v15.2.xml = Libs\DevExpress\DevExpress.XtraEditors.v15.2.xml
+		Libs\DevExpress\DevExpress.XtraLayout.v15.2.dll = Libs\DevExpress\DevExpress.XtraLayout.v15.2.dll
+		Libs\DevExpress\DevExpress.XtraLayout.v15.2.xml = Libs\DevExpress\DevExpress.XtraLayout.v15.2.xml
+		Libs\DevExpress\DevExpress.XtraNavBar.v15.2.dll = Libs\DevExpress\DevExpress.XtraNavBar.v15.2.dll
+		Libs\DevExpress\DevExpress.XtraNavBar.v15.2.xml = Libs\DevExpress\DevExpress.XtraNavBar.v15.2.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ru", "ru", "{07A0C66A-2FB1-4C94-9D99-F5CF7DEBA88A}"
+	ProjectSection(SolutionItems) = preProject
+		Libs\DevExpress\ru\DevExpress.Data.v15.2.resources.dll = Libs\DevExpress\ru\DevExpress.Data.v15.2.resources.dll
+		Libs\DevExpress\ru\DevExpress.Printing.v15.2.Core.resources.dll = Libs\DevExpress\ru\DevExpress.Printing.v15.2.Core.resources.dll
+		Libs\DevExpress\ru\DevExpress.Sparkline.v15.2.Core.resources.dll = Libs\DevExpress\ru\DevExpress.Sparkline.v15.2.Core.resources.dll
+		Libs\DevExpress\ru\DevExpress.Utils.v15.2.resources.dll = Libs\DevExpress\ru\DevExpress.Utils.v15.2.resources.dll
+		Libs\DevExpress\ru\DevExpress.XtraBars.v15.2.resources.dll = Libs\DevExpress\ru\DevExpress.XtraBars.v15.2.resources.dll
+		Libs\DevExpress\ru\DevExpress.XtraEditors.v15.2.resources.dll = Libs\DevExpress\ru\DevExpress.XtraEditors.v15.2.resources.dll
+		Libs\DevExpress\ru\DevExpress.XtraLayout.v15.2.resources.dll = Libs\DevExpress\ru\DevExpress.XtraLayout.v15.2.resources.dll
+		Libs\DevExpress\ru\DevExpress.XtraNavBar.v15.2.resources.dll = Libs\DevExpress\ru\DevExpress.XtraNavBar.v15.2.resources.dll
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,5 +98,7 @@ Global
 		{EFB40F6F-CE7E-4CF5-9C91-5FEC001314D2} = {73531B53-D205-4CCB-A4EA-327BDC9CB128}
 		{48A64EB2-3899-4025-BEDB-903544F75D62} = {D80CE5B1-D304-4C70-8A95-1E71B1626BB8}
 		{F5412259-F740-4AEC-B468-2910B7EA2D2E} = {D80CE5B1-D304-4C70-8A95-1E71B1626BB8}
+		{122A042B-C815-47D7-94E4-A44F9FBF3694} = {F21DDA7C-EABD-4371-95C5-9738B75A1476}
+		{07A0C66A-2FB1-4C94-9D99-F5CF7DEBA88A} = {122A042B-C815-47D7-94E4-A44F9FBF3694}
 	EndGlobalSection
 EndGlobal
