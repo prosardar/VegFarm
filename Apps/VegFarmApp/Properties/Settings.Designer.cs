@@ -22,5 +22,14 @@ namespace VegFarm.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:12122")]
+        public string AddressServer {
+            get {
+                return ((string)(this["AddressServer"]));
+            }
+        }
     }
 }

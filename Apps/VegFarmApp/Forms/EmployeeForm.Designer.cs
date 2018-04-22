@@ -29,39 +29,39 @@
         private void InitializeComponent()
         {
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.employeeGridControl = new DevExpress.XtraGrid.GridControl();
-            this.employeeGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.departmentGridControl = new DevExpress.XtraGrid.GridControl();
+            this.departmentGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.splitterControl1 = new DevExpress.XtraEditors.SplitterControl();
             this.qualificationGridControl = new DevExpress.XtraGrid.GridControl();
             this.qualificationGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.splitterControl1 = new DevExpress.XtraEditors.SplitterControl();
+            this.employeeGridControl = new DevExpress.XtraGrid.GridControl();
+            this.employeeGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.tabbedControlGroup1 = new DevExpress.XtraLayout.TabbedControlGroup();
             this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.departmentGridControl = new DevExpress.XtraGrid.GridControl();
-            this.departmentGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup5 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeGridControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.departmentGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.departmentGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qualificationGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qualificationGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.departmentGridControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.departmentGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -78,63 +78,34 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // layoutControlGroup1
+            // departmentGridControl
             // 
-            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup1.GroupBordersVisible = false;
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlGroup2,
-            this.layoutControlGroup3});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(812, 576);
-            this.layoutControlGroup1.TextVisible = false;
+            this.departmentGridControl.Location = new System.Drawing.Point(36, 364);
+            this.departmentGridControl.MainView = this.departmentGridView;
+            this.departmentGridControl.Name = "departmentGridControl";
+            this.departmentGridControl.Size = new System.Drawing.Size(740, 176);
+            this.departmentGridControl.TabIndex = 7;
+            this.departmentGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.departmentGridView});
             // 
-            // employeeGridControl
+            // departmentGridView
             // 
-            this.employeeGridControl.Location = new System.Drawing.Point(24, 42);
-            this.employeeGridControl.MainView = this.employeeGridView;
-            this.employeeGridControl.Name = "employeeGridControl";
-            this.employeeGridControl.Size = new System.Drawing.Size(764, 242);
-            this.employeeGridControl.TabIndex = 4;
-            this.employeeGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.employeeGridView});
+            this.departmentGridView.GridControl = this.departmentGridControl;
+            this.departmentGridView.Name = "departmentGridView";
+            this.departmentGridView.OptionsBehavior.AutoSelectAllInEditor = false;
+            this.departmentGridView.OptionsClipboard.AllowCopy = DevExpress.Utils.DefaultBoolean.True;
+            this.departmentGridView.OptionsDetail.EnableMasterViewMode = false;
+            this.departmentGridView.OptionsSelection.MultiSelect = true;
+            this.departmentGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
+            this.departmentGridView.OptionsView.ShowGroupPanel = false;
             // 
-            // employeeGridView
+            // splitterControl1
             // 
-            this.employeeGridView.GridControl = this.employeeGridControl;
-            this.employeeGridView.Name = "employeeGridView";
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.employeeGridControl;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.MinSize = new System.Drawing.Size(104, 24);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(768, 246);
-            this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
-            // 
-            // layoutControlGroup2
-            // 
-            this.layoutControlGroup2.ExpandButtonVisible = true;
-            this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1});
-            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(792, 288);
-            this.layoutControlGroup2.Text = "Сотрудники";
-            // 
-            // layoutControlGroup3
-            // 
-            this.layoutControlGroup3.ExpandButtonVisible = true;
-            this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.tabbedControlGroup1});
-            this.layoutControlGroup3.Location = new System.Drawing.Point(0, 288);
-            this.layoutControlGroup3.Name = "layoutControlGroup3";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(792, 268);
-            this.layoutControlGroup3.Text = "Справочники";
+            this.splitterControl1.Location = new System.Drawing.Point(64, 258);
+            this.splitterControl1.Name = "splitterControl1";
+            this.splitterControl1.Size = new System.Drawing.Size(5, 3);
+            this.splitterControl1.TabIndex = 6;
+            this.splitterControl1.TabStop = false;
             // 
             // qualificationGridControl
             // 
@@ -151,13 +122,63 @@
             this.qualificationGridView.GridControl = this.qualificationGridControl;
             this.qualificationGridView.Name = "qualificationGridView";
             // 
-            // splitterControl1
+            // employeeGridControl
             // 
-            this.splitterControl1.Location = new System.Drawing.Point(64, 258);
-            this.splitterControl1.Name = "splitterControl1";
-            this.splitterControl1.Size = new System.Drawing.Size(5, 3);
-            this.splitterControl1.TabIndex = 6;
-            this.splitterControl1.TabStop = false;
+            this.employeeGridControl.Location = new System.Drawing.Point(24, 42);
+            this.employeeGridControl.MainView = this.employeeGridView;
+            this.employeeGridControl.Name = "employeeGridControl";
+            this.employeeGridControl.Size = new System.Drawing.Size(764, 242);
+            this.employeeGridControl.TabIndex = 4;
+            this.employeeGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.employeeGridView});
+            // 
+            // employeeGridView
+            // 
+            this.employeeGridView.GridControl = this.employeeGridControl;
+            this.employeeGridView.Name = "employeeGridView";
+            // 
+            // layoutControlGroup1
+            // 
+            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup1.GroupBordersVisible = false;
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlGroup2,
+            this.layoutControlGroup3});
+            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup1.Name = "layoutControlGroup1";
+            this.layoutControlGroup1.Size = new System.Drawing.Size(812, 576);
+            this.layoutControlGroup1.TextVisible = false;
+            // 
+            // layoutControlGroup2
+            // 
+            this.layoutControlGroup2.ExpandButtonVisible = true;
+            this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1});
+            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup2.Name = "layoutControlGroup2";
+            this.layoutControlGroup2.Size = new System.Drawing.Size(792, 288);
+            this.layoutControlGroup2.Text = "Сотрудники";
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.employeeGridControl;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.MinSize = new System.Drawing.Size(104, 24);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(768, 246);
+            this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
+            // layoutControlGroup3
+            // 
+            this.layoutControlGroup3.ExpandButtonVisible = true;
+            this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.tabbedControlGroup1});
+            this.layoutControlGroup3.Location = new System.Drawing.Point(0, 288);
+            this.layoutControlGroup3.Name = "layoutControlGroup3";
+            this.layoutControlGroup3.Size = new System.Drawing.Size(792, 268);
+            this.layoutControlGroup3.Text = "Справочники";
             // 
             // tabbedControlGroup1
             // 
@@ -188,26 +209,14 @@
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
-            // departmentGridControl
+            // layoutControlGroup5
             // 
-            this.departmentGridControl.Location = new System.Drawing.Point(36, 364);
-            this.departmentGridControl.MainView = this.departmentGridView;
-            this.departmentGridControl.Name = "departmentGridControl";
-            this.departmentGridControl.Size = new System.Drawing.Size(740, 176);
-            this.departmentGridControl.TabIndex = 7;
-            this.departmentGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.departmentGridView});
-            // 
-            // departmentGridView
-            // 
-            this.departmentGridView.GridControl = this.departmentGridControl;
-            this.departmentGridView.Name = "departmentGridView";
-            this.departmentGridView.OptionsBehavior.AutoSelectAllInEditor = false;
-            this.departmentGridView.OptionsClipboard.AllowCopy = DevExpress.Utils.DefaultBoolean.True;
-            this.departmentGridView.OptionsDetail.EnableMasterViewMode = false;
-            this.departmentGridView.OptionsSelection.MultiSelect = true;
-            this.departmentGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
-            this.departmentGridView.OptionsView.ShowGroupPanel = false;
+            this.layoutControlGroup5.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem3});
+            this.layoutControlGroup5.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup5.Name = "layoutControlGroup5";
+            this.layoutControlGroup5.Size = new System.Drawing.Size(744, 180);
+            this.layoutControlGroup5.Text = "Отделы";
             // 
             // layoutControlItem3
             // 
@@ -218,15 +227,6 @@
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
-            // layoutControlGroup5
-            // 
-            this.layoutControlGroup5.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem3});
-            this.layoutControlGroup5.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup5.Name = "layoutControlGroup5";
-            this.layoutControlGroup5.Size = new System.Drawing.Size(744, 180);
-            this.layoutControlGroup5.Text = "Отделы";
-            // 
             // EmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -235,23 +235,24 @@
             this.Controls.Add(this.layoutControl1);
             this.Name = "EmployeeForm";
             this.Text = "Учёт сотрудников";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EmployeeForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeGridControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.departmentGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.departmentGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qualificationGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qualificationGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.departmentGridControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.departmentGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             this.ResumeLayout(false);
 
         }

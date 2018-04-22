@@ -8,22 +8,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VegFarm.Data;
 
 namespace VegFarm.Forms
 {
-    public partial class MainForm : RibbonForm
+    public partial class MainForm : RibbonForm, IMainRibbonForm
     {
+        private CommunicationByForm _communicationForm;
+
         public MainForm()
         {
             InitializeComponent();
+            _communicationForm = new CommunicationByForm(this);            
         }
 
         private void OrgStructureBarItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            var form = new EmployeeForm(ribbonControl) {
-                MdiParent = this
-            };
-            form.Show();
+            var form = new EmployeeForm(_communicationForm);           
+            form.InitDataAndShow();
         }
 
         private void SaveBarItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -39,6 +41,11 @@ namespace VegFarm.Forms
         private void ExitBarItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Application.Exit();
+        }
+
+        public RibbonControl GetRibbonControl()
+        {
+            return ribbonControl;
         }
     }
 }

@@ -98,12 +98,14 @@
   <ItemGroup>
     <Compile Include="Data\DataManager.cs" />
     <Compile Include="Data\VegClient.cs" />
+    <Compile Include="Forms\CommunicationOfForm.cs" />
     <Compile Include="Forms\EmployeeForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\EmployeeForm.Designer.cs">
       <DependentUpon>EmployeeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\IMainRibbonForm.cs" />
     <Compile Include="Forms\ISaveData.cs" />
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
@@ -158,6 +160,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\LoginImage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Kernel\Model\Model.csproj">
+      <Project>{f5412259-f740-4aec-b468-2910b7ea2d2e}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

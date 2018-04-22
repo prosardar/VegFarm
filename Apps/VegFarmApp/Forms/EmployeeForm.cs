@@ -9,22 +9,26 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraBars;
+using VerFarm.Kernel.Model;
 
 namespace VegFarm.Forms
 {
     public partial class EmployeeForm : Form, ISaveData
     {
+        private CommunicationByForm _communicationForm;
         private RibbonControl _ribbonControl;
 
-        public EmployeeForm(RibbonControl ribbonControl)
+        public EmployeeForm(CommunicationByForm communicationForm)
         {
             InitializeComponent();
-            InitRibbonGroup(ribbonControl);
+            _communicationForm = communicationForm;
+            MdiParent = _communicationForm.MainForm;
+            _ribbonControl = _communicationForm.RibbonControl;
+            AddRibbonGroup();            
         }
-
-        private void InitRibbonGroup(RibbonControl ribbonControl)
+        
+        private void AddRibbonGroup()
         {
-            _ribbonControl = ribbonControl;
             var mainPage = _ribbonControl.Pages["Главная"];
             var pageGroup = mainPage.Groups.GetGroupByName("EmployeePageGroup");
             if (pageGroup != null)
@@ -46,6 +50,24 @@ namespace VegFarm.Forms
             mainPage.Groups.Add(pageGroup);
         }
 
+        private void DeleteRibbonGroup()
+        {
+            var mainPage = _ribbonControl.Pages["Главная"];
+            var pageGroup = mainPage.Groups.GetGroupByName("EmployeePageGroup");
+            if (pageGroup == null)
+            {
+                return;
+            }
+            mainPage.Groups.Remove(pageGroup);
+            pageGroup = null;
+        }
+
+        public void InitDataAndShow()
+        {
+            var li = _communicationForm.DataManager.GetDataSourceAsync<EmployeeDTO>();
+            Show();
+        }
+
         private void d_Click(object sender, ItemClickEventArgs e)
         {
           
@@ -54,6 +76,11 @@ namespace VegFarm.Forms
         public void Save()
         {
             
+        }
+
+        private void EmployeeForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            DeleteRibbonGroup();
         }
     }
 }
