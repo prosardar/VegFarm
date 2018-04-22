@@ -36,7 +36,7 @@
             this.OrgStructureBarItem = new DevExpress.XtraBars.BarButtonItem();
             this.SaveBarItem = new DevExpress.XtraBars.BarButtonItem();
             this.RefreshBarItem = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.MainRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
@@ -65,7 +65,7 @@
             this.ribbonControl.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.ribbonPage1});
+            this.MainRibbonPage});
             this.ribbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
             this.ribbonControl.Size = new System.Drawing.Size(1038, 143);
             this.ribbonControl.StatusBar = this.ribbonStatusBar1;
@@ -114,13 +114,13 @@
             this.RefreshBarItem.Name = "RefreshBarItem";
             this.RefreshBarItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.RefreshBarItem_ItemClick);
             // 
-            // ribbonPage1
+            // MainRibbonPage
             // 
-            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.MainRibbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1,
             this.ribbonPageGroup2});
-            this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "Главная";
+            this.MainRibbonPage.Name = "MainRibbonPage";
+            this.MainRibbonPage.Text = "Главная";
             // 
             // ribbonPageGroup1
             // 
@@ -203,7 +203,7 @@
         #endregion
 
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
+        private DevExpress.XtraBars.Ribbon.RibbonPage MainRibbonPage;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar1;
         private DevExpress.XtraBars.BarButtonItem OrgStructureBarItem;

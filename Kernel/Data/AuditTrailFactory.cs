@@ -21,25 +21,25 @@ namespace VerFarm.Kernel.Data
         {
             this.context = context;
         }
-        internal AuditTrail GetAudit(DbEntityEntry entry)
+        internal ChangeLog GetAudit(DbEntityEntry entry)
         {
-            AuditTrail audit = new AuditTrail();
-            audit.UserName = "Current User";     //You can pass the current user as a parameter
-            audit.TableName = GetTableName(entry);
-            audit.TableIdValue = GetKeyValue(entry);
+            ChangeLog audit = new ChangeLog();
+            audit.UserName = "Current User";
+            audit.EntityName = GetTableName(entry);
+            audit.PrimaryKeyValue = GetKeyValue(entry);
             
             if (entry.State == EntityState.Added)
             {
                 var newValues = new StringBuilder();
                 SetAddedProperties(entry, newValues);
-                audit.NewData = newValues.ToString();
+                audit.NewValue = newValues.ToString();
                 audit.Actions = AuditActions.Insert.ToString();
             }
             else if (entry.State == EntityState.Deleted)
             {
                 var oldValues = new StringBuilder();
                 SetDeletedProperties(entry, oldValues);
-                audit.OldData = oldValues.ToString();
+                audit.OldValue = oldValues.ToString();
                 audit.Actions = AuditActions.Delete.ToString();
             }
             else if (entry.State == EntityState.Modified)
@@ -47,13 +47,13 @@ namespace VerFarm.Kernel.Data
                 var oldValues = new StringBuilder();
                 var newValues = new StringBuilder();
                 SetModifiedProperties(entry, oldValues, newValues);
-                audit.OldData = oldValues.ToString();
-                audit.NewData = newValues.ToString();
+                audit.OldValue = oldValues.ToString();
+                audit.NewValue = newValues.ToString();
                 audit.Actions = AuditActions.Update.ToString();
 
                 var modifiedProperties = entry.CurrentValues.PropertyNames.Where(propertyName => entry.Property(propertyName).IsModified).ToList();
                 var properties = string.Join("||", modifiedProperties.ToList());
-                audit.ChangedColums = properties;
+                audit.PropertyName = properties;
             }
 
             return audit;

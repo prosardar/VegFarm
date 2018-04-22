@@ -1,16 +1,20 @@
-﻿namespace VerFarm.Kernel.Data
-{
-    internal class AuditTrail
-    {
-        public string NewData { get; internal set; }
-        public string Actions { get; internal set; }
-        public string OldData { get; internal set; }
-        public string UserName { get; internal set; }
-        public string TableIdValue { get; internal set; }
-        public string TableName { get; internal set; }
-        public string ChangedColums { get; internal set; }
+﻿using System;
 
-        public AuditTrail()
+namespace VerFarm.Kernel.Data
+{
+    internal class ChangeLog
+    {
+        public int Id { get; set; }
+        public int ActionId { get; internal set; }
+        public string NewValue { get; internal set; }
+        public string OldValue { get; internal set; }                        
+        public string EntityName { get; internal set; }
+        public string PrimaryKeyValue { get; internal set; }
+        public string PropertyName { get; internal set; }
+        public string UserName { get; internal set; }
+        public DateTime DateTimeChanged { get; internal set; }
+
+        public ChangeLog()
         {
         }
 

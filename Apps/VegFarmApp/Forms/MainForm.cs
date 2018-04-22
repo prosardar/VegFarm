@@ -20,13 +20,15 @@ namespace VegFarm.Forms
 
         private void OrgStructureBarItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            var form = new EmployeeForm();
-            form.MdiParent = this;
+            var form = new EmployeeForm(ribbonControl) {
+                MdiParent = this
+            };
             form.Show();
         }
 
         private void SaveBarItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            var form = xtraTabbedMdiManager.ActiveFloatForm as ISaveData;
         }
 
         private void RefreshBarItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
