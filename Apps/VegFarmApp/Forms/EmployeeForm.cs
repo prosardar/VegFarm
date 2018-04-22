@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace VegFarm
+namespace VegFarm.Forms
 {
-    public partial class Form1 : Form
+    public partial class EmployeeForm : Form
     {
-        public Form1()
+        public EmployeeForm()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
-﻿namespace VegFarm
+﻿namespace VegFarm.Forms
 {
-    partial class Form1
+    partial class EmployeeForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // EmployeeForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(744, 383);
+            this.Name = "EmployeeForm";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
