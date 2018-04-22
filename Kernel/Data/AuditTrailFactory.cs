@@ -33,14 +33,14 @@ namespace VerFarm.Kernel.Data
                 var newValues = new StringBuilder();
                 SetAddedProperties(entry, newValues);
                 audit.NewValue = newValues.ToString();
-                audit.Actions = AuditActions.Insert.ToString();
+                audit.ActionId = (int)AuditActions.Insert;
             }
             else if (entry.State == EntityState.Deleted)
             {
                 var oldValues = new StringBuilder();
                 SetDeletedProperties(entry, oldValues);
                 audit.OldValue = oldValues.ToString();
-                audit.Actions = AuditActions.Delete.ToString();
+                audit.ActionId = (int)AuditActions.Delete;
             }
             else if (entry.State == EntityState.Modified)
             {
@@ -49,7 +49,7 @@ namespace VerFarm.Kernel.Data
                 SetModifiedProperties(entry, oldValues, newValues);
                 audit.OldValue = oldValues.ToString();
                 audit.NewValue = newValues.ToString();
-                audit.Actions = AuditActions.Update.ToString();
+                audit.ActionId = (int)AuditActions.Update;
 
                 var modifiedProperties = entry.CurrentValues.PropertyNames.Where(propertyName => entry.Property(propertyName).IsModified).ToList();
                 var properties = string.Join("||", modifiedProperties.ToList());
