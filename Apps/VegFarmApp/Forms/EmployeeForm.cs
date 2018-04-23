@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraBars;
-using VerFarm.Kernel.Model;
+using VerFarm.Kernel.Model.DTO;
 
 namespace VegFarm.Forms
 {
@@ -64,7 +64,8 @@ namespace VegFarm.Forms
 
         public void InitDataAndShow()
         {
-            var li = _communicationForm.DataManager.GetDataSourceAsync<EmployeeDTO>();
+            Task<object> li = _communicationForm.DataManager.GetDataSourceAsync<EmployeeDTO>();
+            li.Wait();
             Show();
         }
 

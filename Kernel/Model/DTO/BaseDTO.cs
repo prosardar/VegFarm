@@ -5,11 +5,11 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VerFarm.Kernel.Model
+namespace VerFarm.Kernel.Model.DTO
 {
     [Serializable]
     [DataContract]
-    public class BaseDTO
+    public class DTOBase
     {
         [DataMember]
         public int Id { get; set; }

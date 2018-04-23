@@ -29,7 +29,7 @@ namespace VegFarm
 
         private static void Stop()
         {
-           
+            UnityConfig.Container.Dispose();
         }
     }
 }

@@ -1,6 +1,9 @@
 using System;
 
 using Unity;
+using VerFarm.Kernel.BL.Implimantation;
+using VerFarm.Kernel.BL.Service;
+using VerFarm.Kernel.Model.DTO;
 
 namespace VegFarm
 {
@@ -39,9 +42,8 @@ namespace VegFarm
             // NOTE: To load from web.config uncomment the line below.
             // Make sure to add a Unity.Configuration to the using statements.
             // container.LoadConfiguration();
-
-            // TODO: Register your type's mappings here.
-            // container.RegisterType<IProductRepository, ProductRepository>();
+         
+            container.RegisterType<IService<EmployeeDTO>, EmployeeService>();
         }
     }
 }

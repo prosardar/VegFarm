@@ -5,28 +5,33 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
-using VerFarm.Kernel.Model;
-using VerFarm.Kernel.Model.Service;
+using VerFarm.Kernel.Model.DTO;
+using VerFarm.Kernel.BL.Service;
 
 namespace VegFarm.Controllers
 {
     public class EmployeesController : ApiController
     {
-        private IEmployeeService Service { get; set; }
+        private IService<EmployeeDTO> _service { get; set; }
 
-        public EmployeesController(IEmployeeService service)
+        public EmployeesController()
         {
-            Service = service;
+
+        }
+
+        public EmployeesController(IService<EmployeeDTO> service) : this()
+        {
+            _service = service;
         }
 
         public async Task<IEnumerable<EmployeeDTO>> GetAllEmployees()
         {
-            return await Service.GetAllEmployeesAsync();
+            return await _service.GetAll();
         }
 
         public async Task<IHttpActionResult> GetEmployee(int id)
         {
-            EmployeeDTO em = await Service.GetEmployeeAsync(id);
+            EmployeeDTO em = await _service.GetById(id);
             if (em == null)
             {
                 return NotFound();
@@ -54,19 +59,19 @@ namespace VegFarm.Controllers
                 return BadRequest();
             }
 
-          return StatusCode(HttpStatusCode.NoContent);
+            return StatusCode(HttpStatusCode.NoContent);
         }
 
         [HttpDelete()]
         public async Task<IHttpActionResult> Delete(int id)
         {
-            int count = await Service.DeleteAsync(id);
-            if (count == 0)
+            bool result = await _service.Delete(id);
+            if (result)
             {
-                return NotFound();
-            }            
+                return StatusCode(HttpStatusCode.NoContent);
+            }
 
-            return StatusCode(HttpStatusCode.NoContent);
+            return NotFound();
         }
     }
 }

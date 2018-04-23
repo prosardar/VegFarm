@@ -8,6 +8,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using VerFarm.Kernel.Model;
+using VerFarm.Kernel.Model.DTO;
 
 namespace VegFarm.Data
 {
@@ -62,7 +63,7 @@ namespace VegFarm.Data
             return await response.Content.ReadAsAsync<T>();
         }
 
-        internal async Task<T> UpdateAsync<T>(T newObject) where T : BaseDTO
+        internal async Task<T> UpdateAsync<T>(T newObject) where T : DTOBase
         {
             string request = GetRequestString(typeof(T));
             HttpResponseMessage response = await _client.PutAsJsonAsync(Path.Combine(request, $"{newObject.Id}"), newObject);
