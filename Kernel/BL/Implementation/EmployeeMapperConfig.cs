@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using VerFarm.Kernel.Data.Entity;
 using VerFarm.Kernel.Model.DTO;
 
-namespace VerFarm.Kernel.BL.Implimantation
+namespace VerFarm.Kernel.BL.Implemantation
 {
     public class EmployeeMapperConfig
     {
@@ -16,6 +16,10 @@ namespace VerFarm.Kernel.BL.Implimantation
             var config = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<Employee, EmployeeDTO>();
+                cfg.CreateMap<EmployeeTransfer, EmployeeTransferDTO>();                
+                cfg.CreateMap<CatalogDepartment, CatalogDepartmentDTO>();
+                cfg.CreateMap<CatalogQualification, CatalogQualificationDTO>();
+                cfg.CreateMap<ChangeLog, ChangeLogDTO>();
             });
             return config.CreateMapper();
         }

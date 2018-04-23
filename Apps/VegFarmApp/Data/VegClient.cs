@@ -23,7 +23,7 @@ namespace VegFarm.Data
             _client.DefaultRequestHeaders.Accept.Clear();
             _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            _requestQueryDic[typeof(EmployeeDTO)] = "api/employees/";
+            _requestQueryDic[typeof(CatalogDepartmentDTO)] = "api/employees/";
         }
 
         private string GetRequestString(Type typeOfResponseData)

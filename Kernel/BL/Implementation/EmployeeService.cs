@@ -8,7 +8,7 @@ using VerFarm.Kernel.BL.Service;
 using VerFarm.Kernel.Data.Entity;
 using VerFarm.Kernel.Model.DTO;
 
-namespace VerFarm.Kernel.BL.Implimantation
+namespace VerFarm.Kernel.BL.Implemantation
 {
     public class EmployeeService : IService<EmployeeDTO>
     {
@@ -18,6 +18,8 @@ namespace VerFarm.Kernel.BL.Implimantation
         {
             _employeeRep = new Repository<Employee, EmployeeDTO>(context, mapper);
         }
+
+        #region CRUD Interface Implementations
 
         public async Task<EmployeeDTO> Add(EmployeeDTO employee)
         {
@@ -43,5 +45,7 @@ namespace VerFarm.Kernel.BL.Implimantation
         {
             return await _employeeRep.Update(employee);
         }
+
+        #endregion
     }
 }

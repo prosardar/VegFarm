@@ -50,11 +50,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Implimantation\EFDbContext.cs" />
-    <Compile Include="Implimantation\EmployeeMapperConfig.cs" />
-    <Compile Include="Implimantation\EmployeeService.cs" />
+    <Compile Include="Implementation\EFDbContext.cs" />
+    <Compile Include="Implementation\EmployeeMapperConfig.cs" />
+    <Compile Include="Implementation\EmployeeService.cs" />
     <Compile Include="Service\IDbContext.cs" />
-    <Compile Include="Implimantation\Repository.cs" />
+    <Compile Include="Implementation\Repository.cs" />
     <Compile Include="Service\IService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

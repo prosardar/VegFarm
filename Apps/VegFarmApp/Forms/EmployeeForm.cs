@@ -64,7 +64,7 @@ namespace VegFarm.Forms
 
         public void InitDataAndShow()
         {
-            Task<object> li = _communicationForm.DataManager.GetDataSourceAsync<EmployeeDTO>();
+            Task<object> li = _communicationForm.DataManager.GetDataSourceAsync<CatalogDepartmentDTO>();
             li.Wait();
             Show();
         }

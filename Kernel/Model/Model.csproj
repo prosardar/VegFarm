@@ -45,6 +45,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\BaseDTO.cs" />
+    <Compile Include="DTO\CatalogQualificationDTO.cs" />
+    <Compile Include="DTO\ChangeLogDTO.cs" />
+    <Compile Include="DTO\CatalogDepartmentDTO.cs" />
+    <Compile Include="DTO\EmployeeTransferDTO.cs" />
     <Compile Include="DTO\EmployeeDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />

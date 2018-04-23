@@ -8,7 +8,7 @@ using VerFarm.Kernel.BL.Service;
 using VerFarm.Kernel.Data.Entity;
 using VerFarm.Kernel.Model.DTO;
 
-namespace VerFarm.Kernel.BL.Implimantation
+namespace VerFarm.Kernel.BL.Implemantation
 {
     public class Repository<TEntity, TDto> : IService<TDto> 
         where TEntity : BaseEntity 

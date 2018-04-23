@@ -9,7 +9,7 @@ using VerFarm.Kernel.BL.Service;
 using VerFarm.Kernel.Data.Context;
 using VerFarm.Kernel.Data.Entity;
 
-namespace VerFarm.Kernel.BL.Implimantation
+namespace VerFarm.Kernel.BL.Implemantation
 {
     public class EFDbContext : IDbContext
     {
