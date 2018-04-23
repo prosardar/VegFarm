@@ -1,18 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using VerFarm.Kernel.Data.Entity;
 
 namespace VerFarm.Kernel.BL.Service
 {
-    public interface IDbContext<TEntity> where TEntity : class
+    public interface IDbContext
     {
-        Task<IEnumerable<TEntity>> GetAllAsync();
+        Task<IEnumerable<TEntity>> GetAllAsync<TEntity>() where TEntity : BaseEntity;
 
-        Task<TEntity> GetByIdAsync(int id);
+        Task<TEntity> GetByIdAsync<TEntity>(int id) where TEntity : BaseEntity;
 
-        Task<TEntity> AddAsync(TEntity entity);
+        Task<TEntity> AddAsync<TEntity>(TEntity entity) where TEntity : BaseEntity;
 
-        Task<TEntity> UpdateAsync(TEntity entity);
+        Task<TEntity> UpdateAsync<TEntity>(TEntity entity) where TEntity : BaseEntity;
 
-        Task<bool> DeleteAsync(int id);
+        Task<bool> DeleteAsync<TEntity>(int id) where TEntity : BaseEntity;
     }
 }

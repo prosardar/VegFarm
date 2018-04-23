@@ -9,10 +9,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using VerFarm.Kernel.Data.Entity;
 
-namespace VerFarm.Kernel.Data
+namespace VerFarm.Kernel.Data.Audit
 {
-
     public class AuditTrailFactory
     {
         private DbContext context;
@@ -21,6 +21,7 @@ namespace VerFarm.Kernel.Data
         {
             this.context = context;
         }
+
         internal ChangeLog GetAudit(DbEntityEntry entry)
         {
             ChangeLog audit = new ChangeLog();

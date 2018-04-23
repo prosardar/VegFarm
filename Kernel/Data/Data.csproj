@@ -48,6 +48,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -59,9 +60,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuditActions.cs" />
-    <Compile Include="Entity\AuditTrail.cs" />
-    <Compile Include="AuditTrailFactory.cs" />
+    <Compile Include="Audit\AuditActions.cs" />
+    <Compile Include="Context\AuditDbContext.cs" />
+    <Compile Include="Context\EmployeeContext.cs" />
+    <Compile Include="Audit\AuditTrailFactory.cs" />
+    <Compile Include="Entity\CatalogDepartment.cs" />
+    <Compile Include="Entity\CatalogQualification.cs" />
+    <Compile Include="Entity\ChangeLog.cs" />
+    <Compile Include="Entity\Employee.cs" />
+    <Compile Include="Entity\EmployeeTransfer.cs" />
     <Compile Include="Entity\EntityBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -87,6 +94,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

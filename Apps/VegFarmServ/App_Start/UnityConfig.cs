@@ -1,8 +1,13 @@
+using AutoMapper;
 using System;
 
 using Unity;
+using Unity.Injection;
+using Unity.Registration;
 using VerFarm.Kernel.BL.Implimantation;
 using VerFarm.Kernel.BL.Service;
+using VerFarm.Kernel.Data.Context;
+using VerFarm.Kernel.Data.Entity;
 using VerFarm.Kernel.Model.DTO;
 
 namespace VegFarm
@@ -39,10 +44,9 @@ namespace VegFarm
         /// </remarks>
         public static void RegisterTypes(IUnityContainer container)
         {
-            // NOTE: To load from web.config uncomment the line below.
-            // Make sure to add a Unity.Configuration to the using statements.
-            // container.LoadConfiguration();
-         
+            container.RegisterInstance(EmployeeMapperConfig.CreateMapper());
+            container.RegisterType<EFDbContext>(new InjectionConstructor(new EmployeeContext()));
+            container.RegisterType<IDbContext, EFDbContext>();
             container.RegisterType<IService<EmployeeDTO>, EmployeeService>();
         }
     }

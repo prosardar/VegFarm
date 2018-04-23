@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace VerFarm.Kernel.Data.Entity
 {
-    public class EntityBase
+    public class BaseEntity
     {
+        public int Id { get; set; }
     }
 }

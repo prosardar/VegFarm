@@ -63,7 +63,7 @@ namespace VegFarm.Data
             return await response.Content.ReadAsAsync<T>();
         }
 
-        internal async Task<T> UpdateAsync<T>(T newObject) where T : DTOBase
+        internal async Task<T> UpdateAsync<T>(T newObject) where T : BaseDTO
         {
             string request = GetRequestString(typeof(T));
             HttpResponseMessage response = await _client.PutAsJsonAsync(Path.Combine(request, $"{newObject.Id}"), newObject);

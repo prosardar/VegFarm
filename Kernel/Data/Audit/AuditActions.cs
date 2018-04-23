@@ -1,4 +1,4 @@
-﻿namespace VerFarm.Kernel.Data
+﻿namespace VerFarm.Kernel.Data.Audit
 {
     internal enum AuditActions
     {

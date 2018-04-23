@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Implimantation\EFDbContext.cs" />
+    <Compile Include="Implimantation\EmployeeMapperConfig.cs" />
     <Compile Include="Implimantation\EmployeeService.cs" />
     <Compile Include="Service\IDbContext.cs" />
     <Compile Include="Implimantation\Repository.cs" />

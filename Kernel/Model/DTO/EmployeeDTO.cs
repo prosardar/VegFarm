@@ -9,7 +9,7 @@ namespace VerFarm.Kernel.Model.DTO
 {
     [Serializable]
     [DataContract]
-    public class EmployeeDTO : DTOBase
+    public class EmployeeDTO : BaseDTO
     {
     }
 }
