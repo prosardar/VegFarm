@@ -14,8 +14,9 @@ namespace VerFarm.Kernel.Data.Context
 
         public AuditDbContext(string nameOrConnectionString) : base(nameOrConnectionString)
         {
+            
         }
-
+        
         public override int SaveChanges()
         {
             SaveWithAudit();

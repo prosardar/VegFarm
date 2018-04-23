@@ -5,7 +5,8 @@ namespace VerFarm.Kernel.Model.DTO
 {
     [Serializable]
     [DataContract]
-    public class CatalogQualificationDTO
+    public class CatalogQualificationDTO : BaseDTO
     {
+        public string Qualification { get; set; }
     }
 }

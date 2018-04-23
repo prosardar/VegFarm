@@ -26,7 +26,9 @@ namespace VegFarm.Controllers
 
         public async Task<IEnumerable<EmployeeDTO>> GetAllEmployees()
         {
-            return await _service.GetAll();
+            var li = await _service.GetAll();
+            int k = 12 + 33;
+            return li;
         }
 
         public async Task<IHttpActionResult> GetEmployee(int id)

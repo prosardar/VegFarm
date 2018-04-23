@@ -11,13 +11,14 @@ namespace VerFarm.Kernel.Data.Context
     public class EmployeeContext : AuditDbContext
     {
         public virtual DbSet<CatalogDepartment> CatalogDepartment { get; set; }
-        public virtual DbSet<CatalogQualification> CatalogQualification { get; set; }        
+        public virtual DbSet<CatalogQualification> CatalogQualification { get; set; }
         public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<EmployeeTransfer> EmployeeTransfer { get; set; }
 
         public EmployeeContext()
            : base("name=EmployeeContext")
         {
+            Database.SetInitializer(new EmployeeContextInitializer());
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -27,7 +28,7 @@ namespace VerFarm.Kernel.Data.Context
             modelBuilder.Entity<CatalogDepartment>()
                 .Property(e => e.Name)
                 .IsUnicode(false);
-
+            
             modelBuilder.Entity<CatalogDepartment>()
                 .HasMany(e => e.Employee)
                 .WithRequired(e => e.CatalogDepartment)
@@ -48,7 +49,7 @@ namespace VerFarm.Kernel.Data.Context
                 .HasMany(e => e.Employee)
                 .WithRequired(e => e.CatalogQualification)
                 .HasForeignKey(e => e.QualificationId)
-                .WillCascadeOnDelete(false);         
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Employee>()
                 .Property(e => e.FName)
@@ -69,7 +70,7 @@ namespace VerFarm.Kernel.Data.Context
             modelBuilder.Entity<Employee>()
                 .HasMany(e => e.EmployeeTransfer)
                 .WithRequired(e => e.Employee)
-                .WillCascadeOnDelete(false);            
+                .WillCascadeOnDelete(false);
         }
     }
 }

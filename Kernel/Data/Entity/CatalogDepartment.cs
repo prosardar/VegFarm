@@ -13,6 +13,7 @@ namespace VerFarm.Kernel.Data.Entity
         [StringLength(200)]
         public string Name { get; set; }
 
+        [Required]
         public int EmployeeCount { get; set; }
 
         public virtual ICollection<Employee> Employee { get; set; }

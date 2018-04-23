@@ -28,7 +28,8 @@ namespace VerFarm.Kernel.Data.Audit
             audit.UserName = "Current User";
             audit.EntityName = GetTableName(entry);
             audit.PrimaryKeyValue = GetKeyValue(entry);
-            
+            audit.PropertyName = "sd";
+
             if (entry.State == EntityState.Added)
             {
                 var newValues = new StringBuilder();

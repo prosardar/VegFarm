@@ -1,13 +1,11 @@
-using AutoMapper;
 using System;
 
 using Unity;
 using Unity.Injection;
-using Unity.Registration;
+
 using VerFarm.Kernel.BL.Implemantation;
 using VerFarm.Kernel.BL.Service;
 using VerFarm.Kernel.Data.Context;
-using VerFarm.Kernel.Data.Entity;
 using VerFarm.Kernel.Model.DTO;
 
 namespace VegFarm

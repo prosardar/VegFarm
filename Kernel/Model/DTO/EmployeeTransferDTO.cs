@@ -11,5 +11,16 @@ namespace VerFarm.Kernel.Model.DTO
     [DataContract]
     public class EmployeeTransferDTO : BaseDTO
     {
+        public int EmployeeId { get; set; }
+
+        public int ToDepartmentId { get; set; }
+
+        public bool Confirm { get; set; }
+
+        public DateTime ConfirmDate { get; set; }
+
+        public virtual CatalogDepartmentDTO CatalogDepartment { get; set; }
+
+        public virtual EmployeeDTO Employee { get; set; }
     }
 }

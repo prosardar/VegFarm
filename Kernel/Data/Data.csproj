@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Audit\AuditActions.cs" />
     <Compile Include="Context\AuditDbContext.cs" />
+    <Compile Include="Context\EmployeeContextInitializer.cs" />
     <Compile Include="Context\EmployeeContext.cs" />
     <Compile Include="Audit\AuditTrailFactory.cs" />
     <Compile Include="Entity\CatalogDepartment.cs" />

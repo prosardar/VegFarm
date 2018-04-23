@@ -55,6 +55,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ru", "ru", "{07A0C66A-2FB1-
 		Libs\DevExpress\ru\DevExpress.XtraNavBar.v15.2.resources.dll = Libs\DevExpress\ru\DevExpress.XtraNavBar.v15.2.resources.dll
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestServices", "UnitTestServices\UnitTestServices.csproj", "{252579C3-E792-4F36-A360-4D566CDC2BAC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{F5412259-F740-4AEC-B468-2910B7EA2D2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5412259-F740-4AEC-B468-2910B7EA2D2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5412259-F740-4AEC-B468-2910B7EA2D2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{252579C3-E792-4F36-A360-4D566CDC2BAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{252579C3-E792-4F36-A360-4D566CDC2BAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{252579C3-E792-4F36-A360-4D566CDC2BAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{252579C3-E792-4F36-A360-4D566CDC2BAC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -93,5 +99,6 @@ Global
 		{F5412259-F740-4AEC-B468-2910B7EA2D2E} = {D80CE5B1-D304-4C70-8A95-1E71B1626BB8}
 		{122A042B-C815-47D7-94E4-A44F9FBF3694} = {F21DDA7C-EABD-4371-95C5-9738B75A1476}
 		{07A0C66A-2FB1-4C94-9D99-F5CF7DEBA88A} = {122A042B-C815-47D7-94E4-A44F9FBF3694}
+		{252579C3-E792-4F36-A360-4D566CDC2BAC} = {D0216F2B-6A48-4A46-AB4A-01AFAFABFD40}
 	EndGlobalSection
 EndGlobal

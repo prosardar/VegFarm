@@ -13,7 +13,10 @@ namespace VerFarm.Kernel.Data.Entity
         [StringLength(50)]
         public string Qualification { get; set; }
 
-        public virtual ICollection<Employee> Employee { get; set; }
+        [Required]
+        public int Rang { get; set; }
+
+        public virtual ICollection<Employee> Employee { get; set; }      
 
         public CatalogQualification()
         {
