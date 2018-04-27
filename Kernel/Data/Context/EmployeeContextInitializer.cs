@@ -33,6 +33,8 @@ namespace VerFarm.Kernel.Data.Context
                 EmployeeCount = 5
             });
 
+            // ----------------------
+
             context.CatalogQualification.Add(new CatalogQualification
             {
                 Qualification = "практикант",
@@ -47,6 +49,29 @@ namespace VerFarm.Kernel.Data.Context
             {
                 Qualification = "ведущий инженер",
                 Rang = 3
+            });
+
+            // ----------------------
+
+            context.Employee.Add(new Employee
+            {
+                Id = 1,
+                FName = "Иванов",
+                IName = "Игорь",
+                OName = "Авторитетович",
+                Probation = true,
+                QualificationId = 3,
+                DepartmentId = 1
+            });
+            context.Employee.Add(new Employee
+            {
+                Id = 2,
+                FName = "Куликов",
+                IName = "Борис",
+                OName = "Шатунович",
+                Probation = true,
+                QualificationId = 2,
+                DepartmentId = 2
             });
 
             base.Seed(context);

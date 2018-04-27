@@ -9,7 +9,7 @@ namespace VerFarm.Kernel.Model.DTO
 {
     [Serializable]
     [DataContract]
-    public class BaseDTO
+    public class BaseDTO : IBaseDTO
     {
         [DataMember]
         public int Id { get; set; }

@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
 using System.Data.Entity.Core.Objects.DataClasses;
 using System.Data.Entity.Infrastructure;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
-using System.Threading.Tasks;
 using VerFarm.Kernel.Data.Entity;
 
 namespace VerFarm.Kernel.Data.Audit
@@ -22,13 +22,14 @@ namespace VerFarm.Kernel.Data.Audit
             this.context = context;
         }
 
-        internal ChangeLog GetAudit(DbEntityEntry entry)
+        internal IEnumerable<ChangeLog> GetAudits(DbEntityEntry entry)
         {
             ChangeLog audit = new ChangeLog();
             audit.UserName = "Current User";
             audit.EntityName = GetTableName(entry);
             audit.PrimaryKeyValue = GetKeyValue(entry);
-            audit.PropertyName = "sd";
+            audit.PropertyName = "";
+            audit.DateChanged = DateTime.Now;
 
             if (entry.State == EntityState.Added)
             {
@@ -46,19 +47,39 @@ namespace VerFarm.Kernel.Data.Audit
             }
             else if (entry.State == EntityState.Modified)
             {
-                var oldValues = new StringBuilder();
-                var newValues = new StringBuilder();
-                SetModifiedProperties(entry, oldValues, newValues);
-                audit.OldValue = oldValues.ToString();
-                audit.NewValue = newValues.ToString();
-                audit.ActionId = (int)AuditActions.Update;
+                var audits = new List<ChangeLog>();
 
-                var modifiedProperties = entry.CurrentValues.PropertyNames.Where(propertyName => entry.Property(propertyName).IsModified).ToList();
-                var properties = string.Join("||", modifiedProperties.ToList());
-                audit.PropertyName = properties;
+                DbPropertyValues dbValues = entry.GetDatabaseValues();
+                foreach (var propertyName in entry.OriginalValues.PropertyNames)
+                {
+                    var oldVal = dbValues[propertyName];
+                    var newVal = entry.CurrentValues[propertyName];
+                    if (oldVal != null && newVal != null && !Equals(oldVal, newVal))
+                    {                       
+                        if (entry.Property(propertyName).IsModified == false)
+                        {
+                            continue;
+                        }
+                        var a = new ChangeLog();
+                        a.UserName = "Current User";
+                        a.DateChanged = DateTime.Now;
+                        a.EntityName = audit.EntityName;
+                        a.NewValue = newVal.ToString();
+                        a.OldValue = oldVal.ToString();
+                        a.PropertyName = propertyName;
+                        a.PrimaryKeyValue = GetKeyValue(entry);
+                        a.ActionId = (int)AuditActions.Update;
+                        audits.Add(a);
+                    }
+                }
+                return audits;
+            }
+            else
+            {
+                return new List<ChangeLog>();
             }
 
-            return audit;
+            return new List<ChangeLog>() { audit };
         }
 
         private void SetAddedProperties(DbEntityEntry entry, StringBuilder newData)
@@ -107,7 +128,6 @@ namespace VerFarm.Kernel.Data.Audit
                 oldData = oldData.Remove(oldData.Length - 3, 3);
             if (newData.Length > 0)
                 newData = newData.Remove(newData.Length - 3, 3);
-
         }
 
         private string GetKeyValue(DbEntityEntry entry)
@@ -122,7 +142,7 @@ namespace VerFarm.Kernel.Data.Audit
 
         private string GetTableName(DbEntityEntry dbEntry)
         {
-            TableAttribute tableAttr = dbEntry.Entity.GetType().GetCustomAttributes(typeof(TableAttribute), false).SingleOrDefault() as TableAttribute;
+            TableAttribute tableAttr = dbEntry.Entity.GetType().GetCustomAttributes(typeof(TableAttribute), true).SingleOrDefault() as TableAttribute;
             string tableName = tableAttr != null ? tableAttr.Name : dbEntry.Entity.GetType().Name;
             return tableName;
         }

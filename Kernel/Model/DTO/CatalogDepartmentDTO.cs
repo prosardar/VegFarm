@@ -11,8 +11,16 @@ namespace VerFarm.Kernel.Model.DTO
     [DataContract]
     public class CatalogDepartmentDTO : BaseDTO
     {
+        [DataMember]
         public string Name { get; set; }
 
+        [DataMember]
         public int EmployeeCount { get; set; }
+
+        [DataMember]
+        public ICollection<EmployeeDTO> Employee { get; set; }
+
+        [DataMember]
+        public ICollection<EmployeeTransferDTO> EmployeeTransfer { get; set; }
     }
 }

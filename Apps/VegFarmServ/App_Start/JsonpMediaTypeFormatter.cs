@@ -36,6 +36,7 @@ namespace VegFarm.App_Start
         {
             SupportedMediaTypes.Add(new MediaTypeHeaderValue("application/json"));
             SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/javascript"));
+            SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
 
             JsonpParameterName = "callback";
         }

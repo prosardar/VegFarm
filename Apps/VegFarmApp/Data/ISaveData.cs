@@ -1,4 +1,4 @@
-﻿namespace VegFarm.Forms
+﻿namespace VegFarm.Data
 {
     internal interface ISaveData
     {

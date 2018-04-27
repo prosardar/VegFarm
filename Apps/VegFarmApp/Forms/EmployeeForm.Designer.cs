@@ -28,47 +28,66 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.departmentGridControl = new DevExpress.XtraGrid.GridControl();
-            this.departmentGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.splitterControl1 = new DevExpress.XtraEditors.SplitterControl();
             this.qualificationGridControl = new DevExpress.XtraGrid.GridControl();
             this.qualificationGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.splitterControl1 = new DevExpress.XtraEditors.SplitterControl();
+            this.departmentGridControl = new DevExpress.XtraGrid.GridControl();
+            this.departmentGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.employeeGridControl = new DevExpress.XtraGrid.GridControl();
+            this.persistentRepository = new DevExpress.XtraEditors.Repository.PersistentRepository(this.components);
+            this.departmentsLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.qualificationsLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.employeeGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.tabbedControlGroup1 = new DevExpress.XtraLayout.TabbedControlGroup();
-            this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup5 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.departmentGridControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.departmentGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qualificationGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qualificationGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.departmentGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.departmentGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.departmentsLookUpEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qualificationsLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.departmentGridControl);
-            this.layoutControl1.Controls.Add(this.splitterControl1);
             this.layoutControl1.Controls.Add(this.qualificationGridControl);
+            this.layoutControl1.Controls.Add(this.splitterControl1);
+            this.layoutControl1.Controls.Add(this.departmentGridControl);
             this.layoutControl1.Controls.Add(this.employeeGridControl);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
@@ -78,26 +97,56 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // departmentGridControl
+            // qualificationGridControl
             // 
-            this.departmentGridControl.Location = new System.Drawing.Point(36, 364);
-            this.departmentGridControl.MainView = this.departmentGridView;
-            this.departmentGridControl.Name = "departmentGridControl";
-            this.departmentGridControl.Size = new System.Drawing.Size(740, 176);
-            this.departmentGridControl.TabIndex = 7;
-            this.departmentGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.departmentGridView});
+            this.qualificationGridControl.Location = new System.Drawing.Point(36, 364);
+            this.qualificationGridControl.MainView = this.qualificationGridView;
+            this.qualificationGridControl.Name = "qualificationGridControl";
+            this.qualificationGridControl.Size = new System.Drawing.Size(740, 176);
+            this.qualificationGridControl.TabIndex = 7;
+            this.qualificationGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.qualificationGridView});
             // 
-            // departmentGridView
+            // qualificationGridView
             // 
-            this.departmentGridView.GridControl = this.departmentGridControl;
-            this.departmentGridView.Name = "departmentGridView";
-            this.departmentGridView.OptionsBehavior.AutoSelectAllInEditor = false;
-            this.departmentGridView.OptionsClipboard.AllowCopy = DevExpress.Utils.DefaultBoolean.True;
-            this.departmentGridView.OptionsDetail.EnableMasterViewMode = false;
-            this.departmentGridView.OptionsSelection.MultiSelect = true;
-            this.departmentGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
-            this.departmentGridView.OptionsView.ShowGroupPanel = false;
+            this.qualificationGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn10,
+            this.gridColumn11});
+            this.qualificationGridView.GridControl = this.qualificationGridControl;
+            this.qualificationGridView.Name = "qualificationGridView";
+            this.qualificationGridView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
+            this.qualificationGridView.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
+            this.qualificationGridView.OptionsBehavior.AutoSelectAllInEditor = false;
+            this.qualificationGridView.OptionsClipboard.AllowCopy = DevExpress.Utils.DefaultBoolean.True;
+            this.qualificationGridView.OptionsDetail.EnableMasterViewMode = false;
+            this.qualificationGridView.OptionsSelection.MultiSelect = true;
+            this.qualificationGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
+            this.qualificationGridView.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn10
+            // 
+            this.gridColumn10.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn10.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn10.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn10.Caption = "Квалификация";
+            this.gridColumn10.FieldName = "Qualification";
+            this.gridColumn10.Name = "gridColumn10";
+            this.gridColumn10.Visible = true;
+            this.gridColumn10.VisibleIndex = 0;
+            // 
+            // gridColumn11
+            // 
+            this.gridColumn11.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn11.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn11.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn11.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn11.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn11.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn11.Caption = "Ранг";
+            this.gridColumn11.FieldName = "Rang";
+            this.gridColumn11.Name = "gridColumn11";
+            this.gridColumn11.Visible = true;
+            this.gridColumn11.VisibleIndex = 1;
             // 
             // splitterControl1
             // 
@@ -107,23 +156,56 @@
             this.splitterControl1.TabIndex = 6;
             this.splitterControl1.TabStop = false;
             // 
-            // qualificationGridControl
+            // departmentGridControl
             // 
-            this.qualificationGridControl.Location = new System.Drawing.Point(36, 364);
-            this.qualificationGridControl.MainView = this.qualificationGridView;
-            this.qualificationGridControl.Name = "qualificationGridControl";
-            this.qualificationGridControl.Size = new System.Drawing.Size(740, 176);
-            this.qualificationGridControl.TabIndex = 5;
-            this.qualificationGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.qualificationGridView});
+            this.departmentGridControl.Location = new System.Drawing.Point(36, 364);
+            this.departmentGridControl.MainView = this.departmentGridView;
+            this.departmentGridControl.Name = "departmentGridControl";
+            this.departmentGridControl.Size = new System.Drawing.Size(740, 176);
+            this.departmentGridControl.TabIndex = 5;
+            this.departmentGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.departmentGridView});
             // 
-            // qualificationGridView
+            // departmentGridView
             // 
-            this.qualificationGridView.GridControl = this.qualificationGridControl;
-            this.qualificationGridView.Name = "qualificationGridView";
+            this.departmentGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn8,
+            this.gridColumn9});
+            this.departmentGridView.GridControl = this.departmentGridControl;
+            this.departmentGridView.Name = "departmentGridView";
+            this.departmentGridView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
+            this.departmentGridView.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
+            this.departmentGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
+            this.departmentGridView.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn8
+            // 
+            this.gridColumn8.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn8.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn8.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn8.Caption = "Наименование";
+            this.gridColumn8.FieldName = "Name";
+            this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn8.Visible = true;
+            this.gridColumn8.VisibleIndex = 0;
+            // 
+            // gridColumn9
+            // 
+            this.gridColumn9.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn9.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn9.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn9.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn9.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn9.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn9.Caption = "Ограничение на кол-во";
+            this.gridColumn9.FieldName = "EmployeeCount";
+            this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.Visible = true;
+            this.gridColumn9.VisibleIndex = 1;
             // 
             // employeeGridControl
             // 
+            this.employeeGridControl.ExternalRepository = this.persistentRepository;
             this.employeeGridControl.Location = new System.Drawing.Point(24, 42);
             this.employeeGridControl.MainView = this.employeeGridView;
             this.employeeGridControl.Name = "employeeGridControl";
@@ -132,10 +214,150 @@
             this.employeeGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.employeeGridView});
             // 
+            // persistentRepository
+            // 
+            this.persistentRepository.Items.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.departmentsLookUpEdit,
+            this.qualificationsLookUpEdit});
+            // 
+            // departmentsLookUpEdit
+            // 
+            this.departmentsLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.departmentsLookUpEdit.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", 100, "Отдел")});
+            this.departmentsLookUpEdit.Name = "departmentsLookUpEdit";
+            // 
+            // qualificationsLookUpEdit
+            // 
+            this.qualificationsLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.qualificationsLookUpEdit.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Qualification", 100, "Квалификация")});
+            this.qualificationsLookUpEdit.Name = "qualificationsLookUpEdit";
+            // 
             // employeeGridView
             // 
+            this.employeeGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
+            this.gridColumn2,
+            this.gridColumn3,
+            this.gridColumn4,
+            this.gridColumn5,
+            this.gridColumn6,
+            this.gridColumn7,
+            this.gridColumn12,
+            this.gridColumn13});
             this.employeeGridView.GridControl = this.employeeGridControl;
+            this.employeeGridView.GroupCount = 1;
             this.employeeGridView.Name = "employeeGridView";
+            this.employeeGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
+            this.employeeGridView.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn6, DevExpress.Data.ColumnSortOrder.Ascending)});
+            this.employeeGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridView_KeyDown);
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn1.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn1.Caption = "Фамилия";
+            this.gridColumn1.FieldName = "FName";
+            this.gridColumn1.Name = "gridColumn1";
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn2.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn2.Caption = "Имя";
+            this.gridColumn2.FieldName = "IName";
+            this.gridColumn2.Name = "gridColumn2";
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn3.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn3.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn3.Caption = "Отчество";
+            this.gridColumn3.FieldName = "OName";
+            this.gridColumn3.Name = "gridColumn3";
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn4.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn4.Caption = "Исп. срок";
+            this.gridColumn4.FieldName = "Probation";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 5;
+            this.gridColumn4.Width = 319;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn5.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn5.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn5.Caption = "Квалификация";
+            this.gridColumn5.ColumnEdit = this.qualificationsLookUpEdit;
+            this.gridColumn5.FieldName = "QualificationId";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 3;
+            this.gridColumn5.Width = 306;
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn6.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn6.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn6.Caption = "Отдел";
+            this.gridColumn6.ColumnEdit = this.departmentsLookUpEdit;
+            this.gridColumn6.FieldName = "DepartmentId";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 4;
+            this.gridColumn6.Width = 306;
+            // 
+            // gridColumn7
+            // 
+            this.gridColumn7.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn7.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn7.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn7.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn7.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn7.Caption = "Фамилия";
+            this.gridColumn7.FieldName = "FName";
+            this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.Visible = true;
+            this.gridColumn7.VisibleIndex = 0;
+            this.gridColumn7.Width = 151;
+            // 
+            // gridColumn12
+            // 
+            this.gridColumn12.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn12.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn12.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn12.Caption = "Имя";
+            this.gridColumn12.FieldName = "IName";
+            this.gridColumn12.Name = "gridColumn12";
+            this.gridColumn12.Visible = true;
+            this.gridColumn12.VisibleIndex = 1;
+            this.gridColumn12.Width = 109;
+            // 
+            // gridColumn13
+            // 
+            this.gridColumn13.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn13.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn13.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn13.Caption = "Отчество";
+            this.gridColumn13.FieldName = "OName";
+            this.gridColumn13.Name = "gridColumn13";
+            this.gridColumn13.Visible = true;
+            this.gridColumn13.VisibleIndex = 2;
+            this.gridColumn13.Width = 179;
             // 
             // layoutControlGroup1
             // 
@@ -191,24 +413,6 @@
             this.layoutControlGroup4,
             this.layoutControlGroup5});
             // 
-            // layoutControlGroup4
-            // 
-            this.layoutControlGroup4.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem2});
-            this.layoutControlGroup4.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup4.Name = "layoutControlGroup4";
-            this.layoutControlGroup4.Size = new System.Drawing.Size(744, 180);
-            this.layoutControlGroup4.Text = "Квалификация";
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.qualificationGridControl;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(744, 180);
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextVisible = false;
-            // 
             // layoutControlGroup5
             // 
             this.layoutControlGroup5.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
@@ -216,16 +420,34 @@
             this.layoutControlGroup5.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup5.Name = "layoutControlGroup5";
             this.layoutControlGroup5.Size = new System.Drawing.Size(744, 180);
-            this.layoutControlGroup5.Text = "Отделы";
+            this.layoutControlGroup5.Text = "Квалификация";
             // 
             // layoutControlItem3
             // 
-            this.layoutControlItem3.Control = this.departmentGridControl;
+            this.layoutControlItem3.Control = this.qualificationGridControl;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(744, 180);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
+            // 
+            // layoutControlGroup4
+            // 
+            this.layoutControlGroup4.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem2});
+            this.layoutControlGroup4.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup4.Name = "layoutControlGroup4";
+            this.layoutControlGroup4.Size = new System.Drawing.Size(744, 180);
+            this.layoutControlGroup4.Text = "Отделы";
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.departmentGridControl;
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(744, 180);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
             // 
             // EmployeeForm
             // 
@@ -238,21 +460,23 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EmployeeForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.departmentGridControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.departmentGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qualificationGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qualificationGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.departmentGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.departmentGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.departmentsLookUpEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qualificationsLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -266,15 +490,31 @@
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup3;
-        private DevExpress.XtraGrid.GridControl qualificationGridControl;
-        private DevExpress.XtraGrid.Views.Grid.GridView qualificationGridView;
-        private DevExpress.XtraEditors.SplitterControl splitterControl1;
         private DevExpress.XtraGrid.GridControl departmentGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView departmentGridView;
+        private DevExpress.XtraEditors.SplitterControl splitterControl1;
+        private DevExpress.XtraGrid.GridControl qualificationGridControl;
+        private DevExpress.XtraGrid.Views.Grid.GridView qualificationGridView;
         private DevExpress.XtraLayout.TabbedControlGroup tabbedControlGroup1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup5;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
+        private DevExpress.XtraEditors.Repository.PersistentRepository persistentRepository;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit departmentsLookUpEdit;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit qualificationsLookUpEdit;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
     }
 }

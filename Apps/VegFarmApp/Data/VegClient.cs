@@ -15,6 +15,7 @@ namespace VegFarm.Data
     public class VegClient
     {
         private Dictionary<Type, string> _requestQueryDic = new Dictionary<Type, string>();
+        
         private HttpClient _client = new HttpClient();
 
         public VegClient()
@@ -22,8 +23,11 @@ namespace VegFarm.Data
             _client.BaseAddress = new Uri(Properties.Settings.Default.AddressServer);
             _client.DefaultRequestHeaders.Accept.Clear();
             _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        }
 
-            _requestQueryDic[typeof(CatalogDepartmentDTO)] = "api/employees/";
+        public void RegisterQuery(Type dtoType, string query)
+        {
+            _requestQueryDic[dtoType] = query;
         }
 
         private string GetRequestString(Type typeOfResponseData)
@@ -56,7 +60,7 @@ namespace VegFarm.Data
             return await response.Content.ReadAsAsync<T>();
         }
 
-        private async Task<T> GetAsync<T>(string request)
+        internal async Task<T> GetAsync<T>(string request)
         {
             HttpResponseMessage response = await _client.GetAsync(request);
             response.EnsureSuccessStatusCode();

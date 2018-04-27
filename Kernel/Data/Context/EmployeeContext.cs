@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -28,7 +29,7 @@ namespace VerFarm.Kernel.Data.Context
             modelBuilder.Entity<CatalogDepartment>()
                 .Property(e => e.Name)
                 .IsUnicode(false);
-            
+
             modelBuilder.Entity<CatalogDepartment>()
                 .HasMany(e => e.Employee)
                 .WithRequired(e => e.CatalogDepartment)
@@ -61,10 +62,6 @@ namespace VerFarm.Kernel.Data.Context
 
             modelBuilder.Entity<Employee>()
                 .Property(e => e.OName)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Employee>()
-                .Property(e => e.Fio)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Employee>()

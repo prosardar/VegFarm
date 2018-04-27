@@ -14,23 +14,24 @@ namespace VegFarm.Forms
 {
     public partial class MainForm : RibbonForm, IMainRibbonForm
     {
-        private CommunicationByForm _communicationForm;
+        private CommunicationWithMainForm _communicationForm;
 
         public MainForm()
         {
             InitializeComponent();
-            _communicationForm = new CommunicationByForm(this);            
+            _communicationForm = new CommunicationWithMainForm(this);            
         }
 
         private void OrgStructureBarItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             var form = new EmployeeForm(_communicationForm);           
-            form.InitDataAndShow();
+            form.ShowAndInitData();
         }
 
         private void SaveBarItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            var form = xtraTabbedMdiManager.ActiveFloatForm as ISaveData;
+            var form = xtraTabbedMdiManager.SelectedPage?.MdiChild as ISaveData;
+            form?.Save();
         }
 
         private void RefreshBarItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

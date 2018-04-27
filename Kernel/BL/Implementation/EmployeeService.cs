@@ -10,7 +10,7 @@ using VerFarm.Kernel.Model.DTO;
 
 namespace VerFarm.Kernel.BL.Implemantation
 {
-    public class EmployeeService : IService<EmployeeDTO>
+    public class EmployeeService : IEmployeeService
     {
         private Repository<Employee, EmployeeDTO> _employeeRep;
 
@@ -21,7 +21,7 @@ namespace VerFarm.Kernel.BL.Implemantation
 
         #region CRUD Interface Implementations
 
-        public async Task<EmployeeDTO> Add(EmployeeDTO employee)
+        public async Task<IBaseDTO> Add(IBaseDTO employee)
         {
             return await _employeeRep.Add(employee);
         }
@@ -31,17 +31,17 @@ namespace VerFarm.Kernel.BL.Implemantation
             return await _employeeRep.Delete(id);
         }
 
-        public async Task<IEnumerable<EmployeeDTO>> GetAll()
+        public async Task<IEnumerable<IBaseDTO>> GetAll()
         {
             return await _employeeRep.GetAll();
         }
 
-        public async Task<EmployeeDTO> GetById(int id)
+        public async Task<IBaseDTO> GetById(int id)
         {
             return await _employeeRep.GetById(id);
         }
 
-        public async Task<EmployeeDTO> Update(EmployeeDTO employee)
+        public async Task<IBaseDTO> Update(IBaseDTO employee)
         {
             return await _employeeRep.Update(employee);
         }

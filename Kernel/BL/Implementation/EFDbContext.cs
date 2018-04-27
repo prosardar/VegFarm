@@ -44,10 +44,16 @@ namespace VerFarm.Kernel.BL.Implemantation
         {
             try
             {
-                DbEntityEntry<TEntity> dee = _context.Entry(entity);
-                dee.CurrentValues.SetValues(entity);
+                DbSet<TEntity> set = _context.Set<TEntity>();
+                TEntity findedEntity = set.Find(entity.Id);
+                if (findedEntity == null)
+                {
+                    return null;
+                }
+                DbEntityEntry<TEntity> entry = _context.Entry(findedEntity);
+                entry.CurrentValues.SetValues(entity);                
                 await _context.SaveChangesAsync();
-                return dee.Entity;
+                return entry.Entity;
             }
             catch (Exception ex)
             {
@@ -62,6 +68,7 @@ namespace VerFarm.Kernel.BL.Implemantation
             {
                 var entity = await set.FindAsync(id);
                 set.Remove(entity);
+                await _context.SaveChangesAsync();
                 return true;
             }
             catch (Exception ex)

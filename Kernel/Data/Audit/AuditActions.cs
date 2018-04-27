@@ -2,8 +2,8 @@
 {
     internal enum AuditActions
     {
-        Update,
-        Delete,
-        Insert
+        Insert = 1,
+        Update = 2,
+        Delete = 3        
     }
 }

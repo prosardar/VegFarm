@@ -12,7 +12,7 @@ namespace VerFarm.Kernel.BL.Implemantation
 {
     public class Repository<TEntity, TDto> : IService<TDto> 
         where TEntity : BaseEntity 
-        where TDto : BaseDTO
+        where TDto : IBaseDTO
     {
         protected readonly IDbContext Db;
         protected readonly IMapper Mapper;
@@ -23,30 +23,30 @@ namespace VerFarm.Kernel.BL.Implemantation
             Mapper = mapper;
         }
 
-        public async Task<TDto> Add(TDto dto)
+        public async Task<IBaseDTO> Add(IBaseDTO dto)
         {
             TEntity entity = Mapper.Map<TEntity>(dto);
             entity = await Db.AddAsync(entity);
             return Mapper.Map<TDto>(entity);
         }
 
-        public async Task<TDto> GetById(int id)
+        public async Task<IBaseDTO> GetById(int id)
         {
             TEntity entity = await Db.GetByIdAsync<TEntity>(id);
             return Mapper.Map<TDto>(entity);
         }
 
-        public async Task<TDto> Update(TDto dto)
+        public async Task<IBaseDTO> Update(IBaseDTO dto)
         {
             TEntity entity = Mapper.Map<TEntity>(dto);
             TEntity newEntity = await Db.UpdateAsync(entity);
             return Mapper.Map<TDto>(newEntity);
         }
 
-        public async Task<IEnumerable<TDto>> GetAll()
+        public async Task<IEnumerable<IBaseDTO>> GetAll()
         {
             IEnumerable<TEntity> entityies = await Db.GetAllAsync<TEntity>();
-            return entityies.Select(e => Mapper.Map<TDto>(e));
+            return entityies.Select(e => (IBaseDTO) Mapper.Map<TDto>(e));
         }
 
         public async Task<bool> Delete(int id)

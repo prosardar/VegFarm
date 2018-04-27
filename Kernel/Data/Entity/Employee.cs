@@ -21,11 +21,6 @@ namespace VerFarm.Kernel.Data.Entity
         [StringLength(50)]
         public string OName { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        [Required]
-        [StringLength(252)]
-        public string Fio { get; set; }
-
         public bool Probation { get; set; }
 
         public int QualificationId { get; set; }

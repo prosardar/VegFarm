@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading;
@@ -43,8 +44,8 @@ namespace VerFarm.Kernel.Data.Context
 
             entityList.ToList().ForEach(entity =>
             {
-                ChangeLog audit = auditFactory.GetAudit(entity);
-                ChangeLog.Add(audit);
+                IEnumerable<ChangeLog> audits = auditFactory.GetAudits(entity);
+                ChangeLog.AddRange(audits);
             });
         }
 
@@ -66,11 +67,7 @@ namespace VerFarm.Kernel.Data.Context
 
             modelBuilder.Entity<ChangeLog>()
                 .Property(e => e.PrimaryKeyValue)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ChangeLog>()
-                .Property(e => e.PropertyName)
-                .IsUnicode(false);            
+                .IsUnicode(false);     
         }
     }
 }

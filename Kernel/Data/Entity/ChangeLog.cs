@@ -18,8 +18,7 @@ namespace VerFarm.Kernel.Data.Entity
 
         [Required]
         public string PrimaryKeyValue { get; set; }
-
-        [Required]
+        
         public string PropertyName { get; set; }
 
         public string UserName { get; set; }

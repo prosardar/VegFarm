@@ -52,11 +52,15 @@
   <ItemGroup>
     <Compile Include="Implementation\EFDbContext.cs" />
     <Compile Include="Implementation\EmployeeMapperConfig.cs" />
+    <Compile Include="Implementation\CatalogService.cs" />
     <Compile Include="Implementation\EmployeeService.cs" />
+    <Compile Include="Service\IEmployeeService.cs" />
     <Compile Include="Service\IDbContext.cs" />
     <Compile Include="Implementation\Repository.cs" />
+    <Compile Include="Service\ICatalogService.cs" />
     <Compile Include="Service\IService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\IBaseService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

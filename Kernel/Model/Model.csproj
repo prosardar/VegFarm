@@ -50,8 +50,8 @@
     <Compile Include="DTO\CatalogDepartmentDTO.cs" />
     <Compile Include="DTO\EmployeeTransferDTO.cs" />
     <Compile Include="DTO\EmployeeDTO.cs" />
+    <Compile Include="DTO\IBaseDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\BaseRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

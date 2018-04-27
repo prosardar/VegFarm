@@ -10,28 +10,28 @@ using VerFarm.Kernel.BL.Service;
 
 namespace VegFarm.Controllers
 {
-    public class EmployeesController : ApiController
+    public class CatalogController : ApiController
     {
-        private IEmployeeService _service { get; set; }
+        private ICatalogService<IBaseDTO> _service { get; set; }
 
-        public EmployeesController()
+        public CatalogController()
         {
-           
+
         }
 
-        public EmployeesController(IEmployeeService service) : this()
+        public CatalogController(ICatalogService<IBaseDTO> service) : this()
         {
             _service = service;
         }
 
-        public async Task<IEnumerable<IBaseDTO>> GetAllEmployees()
+        public async Task<IEnumerable<IBaseDTO>> GetAll(string name)
         {
-            return await _service.GetAll();
+            return await _service.GetAll(name);
         }
 
-        public async Task<IHttpActionResult> GetEmployee(int id)
+        public async Task<IHttpActionResult> Get(string name, int id)
         {
-            IBaseDTO dto = await _service.GetById(id);
+            IBaseDTO dto = await _service.GetById(name, id);
             if (dto == null)
             {
                 return NotFound();
@@ -40,13 +40,13 @@ namespace VegFarm.Controllers
         }
 
         [HttpPost]
-        public async Task<IHttpActionResult> Create([FromBody]IBaseDTO item)
+        public async Task<IHttpActionResult> Create(string name, [FromBody]IBaseDTO item)
         {
             if (item == null)
             {
                 return BadRequest();
             }
-            IBaseDTO dto = await _service.Add(item);
+            IBaseDTO dto = await _service.Add(name, item);
             if (dto == null)
             {
                 return NotFound();
@@ -55,13 +55,13 @@ namespace VegFarm.Controllers
         }
 
         [HttpPut()]
-        public async Task<IHttpActionResult> Update(int id, [FromBody]IBaseDTO item)
+        public async Task<IHttpActionResult> Update(string name, [FromBody]IBaseDTO item)
         {
             if (item == null)
             {
                 return BadRequest();
             }
-            IBaseDTO dto = await _service.Update(item);
+            IBaseDTO dto = await _service.Update(name, item);
             if (dto == null)
             {
                 return NotFound();
@@ -70,9 +70,9 @@ namespace VegFarm.Controllers
         }
 
         [HttpDelete()]
-        public async Task<IHttpActionResult> Delete(int id)
+        public async Task<IHttpActionResult> Delete(string name, int id)
         {
-            bool result = await _service.Delete(id);
+            bool result = await _service.Delete(name, id);
             if (result)
             {
                 return StatusCode(HttpStatusCode.NoContent);

@@ -4,7 +4,7 @@ using VegFarm.Data;
 
 namespace VegFarm.Forms
 {
-    public class CommunicationByForm
+    public class CommunicationWithMainForm
     {
         public Form MainForm { get; set; }
 
@@ -13,7 +13,7 @@ namespace VegFarm.Forms
         public DataManager DataManager { get; set; }
 
 
-        public CommunicationByForm(Form mainForm)
+        public CommunicationWithMainForm(Form mainForm)
         {
             MainForm = mainForm;
             DataManager = new DataManager();

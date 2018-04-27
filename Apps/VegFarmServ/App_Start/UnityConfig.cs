@@ -45,7 +45,8 @@ namespace VegFarm
             container.RegisterInstance(EmployeeMapperConfig.CreateMapper());
             container.RegisterType<EFDbContext>(new InjectionConstructor(new EmployeeContext()));
             container.RegisterType<IDbContext, EFDbContext>();
-            container.RegisterType<IService<EmployeeDTO>, EmployeeService>();
+            container.RegisterType<IEmployeeService, EmployeeService>();
+            container.RegisterType<ICatalogService<IBaseDTO>, CatalogService>();
         }
     }
 }
