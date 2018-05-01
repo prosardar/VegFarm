@@ -96,7 +96,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\CacheCollection.cs" />
     <Compile Include="Data\DataManager.cs" />
+    <Compile Include="Data\ICachedData.cs" />
     <Compile Include="Data\VegClient.cs" />
     <Compile Include="Model\DepartmentViewModel.cs" />
     <Compile Include="Model\BaseViewModel.cs" />

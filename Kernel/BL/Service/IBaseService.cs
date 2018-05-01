@@ -4,7 +4,7 @@ using VerFarm.Kernel.Model.DTO;
 
 namespace VerFarm.Kernel.BL.Service
 {
-    public interface IBaseService : IBaseDTO
+    public interface IBaseService
     {
         Task<IEnumerable<IBaseDTO>> GetAll();
 

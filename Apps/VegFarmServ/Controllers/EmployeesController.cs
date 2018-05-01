@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
 using VerFarm.Kernel.Model.DTO;
 using VerFarm.Kernel.BL.Service;
+using System.Linq;
 
 namespace VegFarm.Controllers
 {
@@ -16,7 +15,7 @@ namespace VegFarm.Controllers
 
         public EmployeesController()
         {
-           
+
         }
 
         public EmployeesController(IEmployeeService service) : this()
@@ -24,17 +23,18 @@ namespace VegFarm.Controllers
             _service = service;
         }
 
-        public async Task<IEnumerable<IBaseDTO>> GetAllEmployees()
+        public async Task<IEnumerable<EmployeeDTO>> GetAllEmployees()
         {
-            return await _service.GetAll();
+            IEnumerable<IBaseDTO> ems = await _service.GetAll();
+            return ems.Cast<EmployeeDTO>();
         }
 
         public async Task<IHttpActionResult> GetEmployee(int id)
         {
-            IBaseDTO dto = await _service.GetById(id);
+            EmployeeDTO dto = (EmployeeDTO)await _service.GetById(id);
             if (dto == null)
             {
-                return NotFound();
+                return StatusCode(HttpStatusCode.NotAcceptable);
             }
             return Ok(dto);
         }
@@ -44,18 +44,18 @@ namespace VegFarm.Controllers
         {
             if (item == null)
             {
-                return BadRequest();
+                return StatusCode(HttpStatusCode.BadRequest);
             }
-            IBaseDTO dto = await _service.Add(item);
+            EmployeeDTO dto = (EmployeeDTO)await _service.Add(item);
             if (dto == null)
             {
-                return NotFound();
+                return StatusCode(HttpStatusCode.NotAcceptable);
             }
             return Ok(dto);
         }
 
-        [HttpPut()]
-        public async Task<IHttpActionResult> Update(int id, [FromBody]IBaseDTO item)
+        [HttpPut]
+        public async Task<IHttpActionResult> Update([FromBody]IBaseDTO item)
         {
             if (item == null)
             {
@@ -64,7 +64,7 @@ namespace VegFarm.Controllers
             IBaseDTO dto = await _service.Update(item);
             if (dto == null)
             {
-                return NotFound();
+                return StatusCode(HttpStatusCode.NotAcceptable);
             }
             return Ok(dto);
         }
@@ -75,9 +75,9 @@ namespace VegFarm.Controllers
             bool result = await _service.Delete(id);
             if (result)
             {
-                return StatusCode(HttpStatusCode.NoContent);
+                return StatusCode(HttpStatusCode.Accepted);
             }
-            return NotFound();
+            return StatusCode(HttpStatusCode.NotAcceptable);
         }
     }
 }

@@ -7,15 +7,20 @@ using VerFarm.Kernel.Model.DTO;
 
 namespace VegFarm.Model
 {
-    public abstract class BaseViewModel<TDto> : INotifyPropertyChanged, INotifyDataErrorInfo, IViewModel where TDto : BaseDTO
+    public abstract class BaseViewModel<TDto> : INotifyPropertyChanged, INotifyDataErrorInfo, IViewModel
+        where TDto : IBaseDTO
     {
         protected TDto Dto;
 
         public int DtoId => Dto.Id;
-                            
+
         public bool HasErrors => throw new NotImplementedException();
 
-        public StateViewModel State { get; set; }        
+        public StateViewModel State { get; set; }
+
+        public Type DtoType => typeof(TDto);
+
+        IBaseDTO IViewModel.Dto => Dto;
 
         public event PropertyChangedEventHandler PropertyChanged;
 

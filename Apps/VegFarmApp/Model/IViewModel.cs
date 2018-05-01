@@ -1,9 +1,16 @@
-﻿namespace VegFarm.Model
+﻿using System;
+using VerFarm.Kernel.Model.DTO;
+
+namespace VegFarm.Model
 {
     public interface IViewModel
     {
-        StateViewModel State { get; set; }
-
         int DtoId { get; }
+
+        Type DtoType { get; }
+
+        IBaseDTO Dto { get; }
+
+        StateViewModel State { get; set; }        
     }
 }

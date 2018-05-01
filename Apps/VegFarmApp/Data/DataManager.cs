@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using VerFarm.Kernel.Model.DTO;
@@ -9,7 +10,7 @@ namespace VegFarm.Data
 {
     public class DataManager
     {
-        private Dictionary<Type, object> _dataSources = new Dictionary<Type, object>();
+        private Dictionary<Type, ICachedData> _dataSources = new Dictionary<Type, ICachedData>();
 
         private VegClient _client = new VegClient();
 
@@ -20,22 +21,75 @@ namespace VegFarm.Data
             _client.RegisterQuery(typeof(CatalogQualificationDTO), "api/catalog?name=qualifications");
         }
 
-        internal async Task<IEnumerable<T>> GetDataSourceAsync<T>()
+        internal async Task<ICachedData> GetDataSourceAsync<TDto>() where TDto : BaseDTO
         {
-            if (_dataSources.ContainsKey(typeof(T)))
+            if (_dataSources.ContainsKey(typeof(TDto)))
             {
-                return (IEnumerable<T>)_dataSources[typeof(T)];
+                return (CacheCollection<TDto>)_dataSources[typeof(TDto)];
             }
-            IEnumerable<T> newValue = await _client.GetAllObjectsAsync<T>();
-            _dataSources.Add(typeof(T), newValue);
-            return newValue;
+            IEnumerable<TDto> newValue = await _client.GetAllObjectsAsync<TDto>();
+            ICachedData cache = new CacheCollection<TDto>(newValue);
+            _dataSources.Add(typeof(TDto), cache);
+            return cache;
         }
 
-        internal void Delete<T>(T item)
+        internal void Delete(Type dtoType, int id)
         {
             // при удалении на сервере удалить из внутреннего кеша
-            Task t = _client.DeleteAsync<T>(1);
+            Task<HttpStatusCode> t = _client.DeleteAsync(dtoType, id);
+            t.ContinueWith(td =>
+            {
+                if (td.Result != HttpStatusCode.Accepted)
+                {
+                    return;
+                }
+                if (_dataSources.ContainsKey(dtoType))
+                {
+                    ICachedData items = _dataSources[dtoType];
+                    items.Delete(id);
+                }
+            });
+        }
 
+        internal void Update(BaseDTO dto)
+        {
+            // при изменении на сервере, изменить в кеше
+            Task<BaseDTO> t = _client.UpdateAsync(dto);
+            t.ContinueWith(td =>
+            {
+                if (td.Result == null)
+                {
+                    return;
+                }
+                if (_dataSources.ContainsKey(dto.GetType()))
+                {
+                    ICachedData items = _dataSources[dto.GetType()];
+                    items.Update(dto);
+                }
+            });
+        }
+
+        internal void Create(BaseDTO dto)
+        {
+            Task<BaseDTO> t = _client.CreateObjectAsync(dto);
+            t.ContinueWith(td =>
+            {
+                if (td.Result == null)
+                {
+                    return;
+                }
+                if (_dataSources.ContainsKey(dto.GetType()))
+                {
+                    ICachedData items = _dataSources[dto.GetType()];
+                    items.Add(dto);
+                }
+                else
+                {
+                    ICachedData cache = new CacheCollection<BaseDTO>();
+                    cache.Add(td.Result);
+                    _dataSources.Add(dto.GetType(), cache);
+                }
+            });
         }
     }
 }

@@ -37,6 +37,8 @@ namespace VegFarm.App_Start
             SupportedMediaTypes.Add(new MediaTypeHeaderValue("application/json"));
             SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/javascript"));
             SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            SerializerSettings.TypeNameHandling = Newtonsoft.Json.TypeNameHandling.Objects;
+            //SerializerSettings.Binder = new InheritanceSerializationBinder();
 
             JsonpParameterName = "callback";
         }
@@ -61,10 +63,11 @@ namespace VegFarm.App_Start
             // You have to reapply any JSON.NET default serializer Customizations here    
             formatter.SerializerSettings.Converters.Add(new StringEnumConverter());
             formatter.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
-
+            formatter.SerializerSettings.TypeNameHandling = Newtonsoft.Json.TypeNameHandling.Objects;
+            //formatter.SerializerSettings.Binder = new InheritanceSerializationBinder();
             return formatter;
         }
-
+        
         public override Task WriteToStreamAsync(Type type, object value, Stream stream, HttpContent content, TransportContext transportContext)
         {
             if (string.IsNullOrEmpty(JsonpCallbackFunction))

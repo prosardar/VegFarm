@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace VegFarm.Model
 {
@@ -60,9 +61,19 @@ namespace VegFarm.Model
             }   
         }
 
-        public object GetDeletedItems()
+        IList<IViewModel> IViewModelBindingList.GetDeletedItems()
         {
             return DeletedItems;
+        }
+
+        public IList<IViewModel> GetChangedItems()
+        {
+            return Items.Where(x => x.State == StateViewModel.Changed).Cast<IViewModel>().ToList();
+        }
+
+        public IList<IViewModel> GetAddedItems()
+        {
+            return Items.Where(x => x.State == StateViewModel.Added).Cast<IViewModel>().ToList();
         }
     }
 }

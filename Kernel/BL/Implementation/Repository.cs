@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using VerFarm.Kernel.BL.Service;
 using VerFarm.Kernel.Data.Entity;
@@ -25,9 +26,17 @@ namespace VerFarm.Kernel.BL.Implemantation
 
         public async Task<IBaseDTO> Add(IBaseDTO dto)
         {
-            TEntity entity = Mapper.Map<TEntity>(dto);
-            entity = await Db.AddAsync(entity);
-            return Mapper.Map<TDto>(entity);
+            try
+            {
+                TEntity entity = Mapper.Map<TEntity>(dto);
+                entity = await Db.AddAsync(entity);
+                return Mapper.Map<TDto>(entity);
+            }
+            catch (Exception ex)
+            {
+                return await Task.FromResult<IBaseDTO>(null);
+                //return null;
+            }
         }
 
         public async Task<IBaseDTO> GetById(int id)

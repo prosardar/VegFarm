@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -9,14 +8,13 @@ using System.Windows.Forms;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraBars;
 using VerFarm.Kernel.Model.DTO;
-using System.Collections.ObjectModel;
 using VegFarm.Model;
 using VegFarm.Data;
 using DevExpress.XtraGrid.Views.Grid;
 
 namespace VegFarm.Forms
 {
-    public partial class EmployeeForm : Form, ISaveData
+    public partial class EmployeeForm : Form, ISaveForm
     {
         private CommunicationWithMainForm _communicationForm;
         private RibbonControl _ribbonControl;
@@ -73,9 +71,10 @@ namespace VegFarm.Forms
             employeeGridView.LoadingPanelVisible = true;
             await Task.Factory.StartNew(() =>
              {
-                 Task<IEnumerable<EmployeeDTO>> te = _communicationForm.DataManager.GetDataSourceAsync<EmployeeDTO>();
+                 Task<ICachedData> te = _communicationForm.DataManager.GetDataSourceAsync<EmployeeDTO>();
                  te.Wait();
-                 List<EmployeeViewModel> l = te.Result.Select(dto => new EmployeeViewModel(dto)).ToList();
+                 var collection = te.Result as CacheCollection<EmployeeDTO>;
+                 List<EmployeeViewModel> l = collection.Select(dto => new EmployeeViewModel(dto)).ToList();
                  var list = new ViewModelBindingList<EmployeeViewModel>(l);
                  _dataSourceDic.Add("employees", list);
 
@@ -88,9 +87,10 @@ namespace VegFarm.Forms
             departmentGridView.LoadingPanelVisible = true;
             await Task.Factory.StartNew(() =>
             {
-                Task<IEnumerable<CatalogDepartmentDTO>> td = _communicationForm.DataManager.GetDataSourceAsync<CatalogDepartmentDTO>();
+                Task<ICachedData> td = _communicationForm.DataManager.GetDataSourceAsync<CatalogDepartmentDTO>();
                 td.Wait();
-                List<DepartmentViewModel> l = td.Result.Select(dto => new DepartmentViewModel(dto)).ToList();
+                var collection = td.Result as CacheCollection<CatalogDepartmentDTO>;
+                List<DepartmentViewModel> l = collection.Select(dto => new DepartmentViewModel(dto)).ToList();
                 var list = new ViewModelBindingList<DepartmentViewModel>(l);
                 _dataSourceDic.Add("departments", list);
 
@@ -107,9 +107,10 @@ namespace VegFarm.Forms
             qualificationGridView.LoadingPanelVisible = true;
             await Task.Factory.StartNew(() =>
             {
-                Task<IEnumerable<CatalogQualificationDTO>> tq = _communicationForm.DataManager.GetDataSourceAsync<CatalogQualificationDTO>();
+                Task<ICachedData> tq = _communicationForm.DataManager.GetDataSourceAsync<CatalogQualificationDTO>();
                 tq.Wait();
-                List<QualificationViewModel> l = tq.Result.Select(dto => new QualificationViewModel(dto)).ToList();
+                var collection = tq.Result as CacheCollection<CatalogQualificationDTO>;
+                List<QualificationViewModel> l = collection.Select(dto => new QualificationViewModel(dto)).ToList();
                 var list = new ViewModelBindingList<QualificationViewModel>(l);           
                 _dataSourceDic.Add("qualifications", list);
             }).ContinueWith((task) =>
@@ -122,23 +123,32 @@ namespace VegFarm.Forms
                 qualificationGridView.LoadingPanelVisible = false;
             }, TaskScheduler.FromCurrentSynchronizationContext());
         }
-
-
+        
         private void d_Click(object sender, ItemClickEventArgs e)
         {
 
         }
 
-        public void Save()
+        public async void Save()
         {
             foreach(var dataSource in _dataSourceDic.Values)
             {
                 var list = dataSource as IViewModelBindingList;
-                var deleted = list.GetDeletedItems() as IList<IViewModel>;
+                IList<IViewModel> deleted = list.GetDeletedItems();
                 foreach(var item in deleted)
                 {
-                    _communicationForm.DataManager.Delete(item.DtoId);
-                }                
+                    _communicationForm.DataManager.Delete(item.DtoType, item.DtoId);
+                }
+                IList<IViewModel> changed = list.GetChangedItems();
+                foreach (var item in changed)
+                {
+                    _communicationForm.DataManager.Update((BaseDTO)item.Dto);
+                }
+                IList<IViewModel> added = list.GetAddedItems();
+                foreach (var item in added)
+                {
+                    _communicationForm.DataManager.Create((BaseDTO)item.Dto);
+                }
             }
         }
 

@@ -1,6 +1,6 @@
 ﻿namespace VegFarm.Data
 {
-    internal interface ISaveData
+    internal interface ISaveForm
     {
         void Save();
     }

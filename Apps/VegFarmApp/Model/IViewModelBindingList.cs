@@ -1,7 +1,13 @@
-﻿namespace VegFarm.Model
+﻿using System.Collections.Generic;
+
+namespace VegFarm.Model
 {
     internal interface IViewModelBindingList
     {
-        object GetDeletedItems();
+        IList<IViewModel> GetDeletedItems();
+
+        IList<IViewModel> GetChangedItems();
+
+        IList<IViewModel> GetAddedItems();
     }
 }
