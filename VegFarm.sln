@@ -37,10 +37,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DevExpress", "DevExpress", 
 		Libs\DevExpress\DevExpress.XtraBars.v15.2.xml = Libs\DevExpress\DevExpress.XtraBars.v15.2.xml
 		Libs\DevExpress\DevExpress.XtraEditors.v15.2.dll = Libs\DevExpress\DevExpress.XtraEditors.v15.2.dll
 		Libs\DevExpress\DevExpress.XtraEditors.v15.2.xml = Libs\DevExpress\DevExpress.XtraEditors.v15.2.xml
+		Libs\DevExpress\DevExpress.XtraGrid.v15.2.dll = Libs\DevExpress\DevExpress.XtraGrid.v15.2.dll
+		Libs\DevExpress\DevExpress.XtraGrid.v15.2.xml = Libs\DevExpress\DevExpress.XtraGrid.v15.2.xml
 		Libs\DevExpress\DevExpress.XtraLayout.v15.2.dll = Libs\DevExpress\DevExpress.XtraLayout.v15.2.dll
 		Libs\DevExpress\DevExpress.XtraLayout.v15.2.xml = Libs\DevExpress\DevExpress.XtraLayout.v15.2.xml
 		Libs\DevExpress\DevExpress.XtraNavBar.v15.2.dll = Libs\DevExpress\DevExpress.XtraNavBar.v15.2.dll
 		Libs\DevExpress\DevExpress.XtraNavBar.v15.2.xml = Libs\DevExpress\DevExpress.XtraNavBar.v15.2.xml
+		Libs\DevExpress\DevExpress.XtraPrinting.v15.2.dll = Libs\DevExpress\DevExpress.XtraPrinting.v15.2.dll
+		Libs\DevExpress\DevExpress.XtraPrinting.v15.2.xml = Libs\DevExpress\DevExpress.XtraPrinting.v15.2.xml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ru", "ru", "{07A0C66A-2FB1-4C94-9D99-F5CF7DEBA88A}"
@@ -51,8 +55,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ru", "ru", "{07A0C66A-2FB1-
 		Libs\DevExpress\ru\DevExpress.Utils.v15.2.resources.dll = Libs\DevExpress\ru\DevExpress.Utils.v15.2.resources.dll
 		Libs\DevExpress\ru\DevExpress.XtraBars.v15.2.resources.dll = Libs\DevExpress\ru\DevExpress.XtraBars.v15.2.resources.dll
 		Libs\DevExpress\ru\DevExpress.XtraEditors.v15.2.resources.dll = Libs\DevExpress\ru\DevExpress.XtraEditors.v15.2.resources.dll
+		Libs\DevExpress\ru\DevExpress.XtraGrid.v15.2.resources.dll = Libs\DevExpress\ru\DevExpress.XtraGrid.v15.2.resources.dll
 		Libs\DevExpress\ru\DevExpress.XtraLayout.v15.2.resources.dll = Libs\DevExpress\ru\DevExpress.XtraLayout.v15.2.resources.dll
 		Libs\DevExpress\ru\DevExpress.XtraNavBar.v15.2.resources.dll = Libs\DevExpress\ru\DevExpress.XtraNavBar.v15.2.resources.dll
+		Libs\DevExpress\ru\DevExpress.XtraPrinting.v15.2.resources.dll = Libs\DevExpress\ru\DevExpress.XtraPrinting.v15.2.resources.dll
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestServices", "UnitTestServices\UnitTestServices.csproj", "{252579C3-E792-4F36-A360-4D566CDC2BAC}"

@@ -27,6 +27,9 @@ namespace VerFarm.Kernel.Model.DTO
         public bool Probation { get; set; }
 
         [DataMember]
+        public int ProbationDays { get; set; }
+
+        [DataMember]
         public int QualificationId { get; set; }
 
         [DataMember]
@@ -34,11 +37,11 @@ namespace VerFarm.Kernel.Model.DTO
 
         [DataMember]
         public CatalogDepartmentDTO CatalogDepartment { get; set; }
-
+                
         [DataMember]
         public CatalogQualificationDTO CatalogQualification { get; set; }
 
         [DataMember]
-        public ICollection<EmployeeTransferDTO> EmployeeTransfer { get; set; }
+        public ICollection<EmployeeTransferDTO> EmployeeTransfer { get; set; }        
     }
 }

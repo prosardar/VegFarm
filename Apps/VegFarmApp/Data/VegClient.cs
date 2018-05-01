@@ -74,7 +74,7 @@ namespace VegFarm.Data
             {
                 HttpResponseMessage response = await _client.GetAsync(request);
                 response.EnsureSuccessStatusCode();
-                return await response.Content.ReadAsAsync<T>();
+                return await response.Content.ReadAsAsync<T>(new[] { _formatter });
             }
             catch (Exception ex)
             {
@@ -89,7 +89,7 @@ namespace VegFarm.Data
                 string request = GetRequestString(dto.GetType());
                 HttpResponseMessage response = await _client.PostAsync(request, dto, _formatter);
                 response.EnsureSuccessStatusCode();
-                return await response.Content.ReadAsAsync<T>();
+                return await response.Content.ReadAsAsync<T>(new[] { _formatter });
             }
             catch (Exception ex)
             {
@@ -104,7 +104,7 @@ namespace VegFarm.Data
                 string request = GetRequestString(dto.GetType());
                 HttpResponseMessage response = await _client.PutAsync(request, dto, _formatter);
                 response.EnsureSuccessStatusCode();
-                return await response.Content.ReadAsAsync<T>();
+                return await response.Content.ReadAsAsync<T>(new[] { _formatter });
             }
             catch (Exception ex)
             {

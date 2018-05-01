@@ -64,6 +64,16 @@ namespace VegFarm.Model
             }
         }
 
+        public int ProbationDays
+        {
+            get => Dto.ProbationDays;
+            set
+            {
+                int days = Dto.ProbationDays;
+                SetProperty(ref days, value);
+            }
+        }
+
         public int QualificationId
         {
             get => Dto.QualificationId;

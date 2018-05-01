@@ -31,12 +31,13 @@ namespace VegFarm.Forms
         private void SaveBarItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             var form = xtraTabbedMdiManager.SelectedPage?.MdiChild as ISaveForm;
-            form?.Save();
+            form?.SaveData();
         }
 
         private void RefreshBarItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-          
+            var form = xtraTabbedMdiManager.SelectedPage?.MdiChild as ISaveForm;
+            form?.UpdateData();
         }
 
         private void ExitBarItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

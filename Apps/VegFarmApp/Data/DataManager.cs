@@ -1,9 +1,11 @@
-﻿using System;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using VerFarm.Kernel.Model.DTO;
 
 namespace VegFarm.Data
@@ -57,7 +59,8 @@ namespace VegFarm.Data
             Task<BaseDTO> t = _client.UpdateAsync(dto);
             t.ContinueWith(td =>
             {
-                if (td.Result == null)
+                BaseDTO dtoFromServer = td.Result as BaseDTO;
+                if (IfErrorShowMessage(dtoFromServer))
                 {
                     return;
                 }
@@ -74,7 +77,8 @@ namespace VegFarm.Data
             Task<BaseDTO> t = _client.CreateObjectAsync(dto);
             t.ContinueWith(td =>
             {
-                if (td.Result == null)
+                BaseDTO dtoFromServer = td.Result as BaseDTO;
+                if (IfErrorShowMessage(dtoFromServer))
                 {
                     return;
                 }
@@ -90,6 +94,20 @@ namespace VegFarm.Data
                     _dataSources.Add(dto.GetType(), cache);
                 }
             });
+        }
+
+        private bool IfErrorShowMessage(BaseDTO dto)
+        {
+            if (dto == null)
+            {
+                return true;
+            }
+            if (dto.IsError)
+            {
+                XtraMessageBox.Show(dto.Message, "Ошибка", MessageBoxButtons.OK);
+                return true;
+            }
+            return false;
         }
     }
 }

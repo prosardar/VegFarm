@@ -67,61 +67,7 @@ namespace VegFarm.Forms
         public async void ShowAndInitData()
         {
             Show();
-
-            employeeGridView.LoadingPanelVisible = true;
-            await Task.Factory.StartNew(() =>
-             {
-                 Task<ICachedData> te = _communicationForm.DataManager.GetDataSourceAsync<EmployeeDTO>();
-                 te.Wait();
-                 var collection = te.Result as CacheCollection<EmployeeDTO>;
-                 List<EmployeeViewModel> l = collection.Select(dto => new EmployeeViewModel(dto)).ToList();
-                 var list = new ViewModelBindingList<EmployeeViewModel>(l);
-                 _dataSourceDic.Add("employees", list);
-
-             }).ContinueWith((task) =>
-             {
-                 employeeGridControl.DataSource = _dataSourceDic["employees"];
-                 employeeGridView.LoadingPanelVisible = false;
-             }, TaskScheduler.FromCurrentSynchronizationContext());
-
-            departmentGridView.LoadingPanelVisible = true;
-            await Task.Factory.StartNew(() =>
-            {
-                Task<ICachedData> td = _communicationForm.DataManager.GetDataSourceAsync<CatalogDepartmentDTO>();
-                td.Wait();
-                var collection = td.Result as CacheCollection<CatalogDepartmentDTO>;
-                List<DepartmentViewModel> l = collection.Select(dto => new DepartmentViewModel(dto)).ToList();
-                var list = new ViewModelBindingList<DepartmentViewModel>(l);
-                _dataSourceDic.Add("departments", list);
-
-            }).ContinueWith((task) =>
-            {
-                departmentsLookUpEdit.ValueMember = "Id";
-                departmentsLookUpEdit.DisplayMember = "Name";
-                departmentsLookUpEdit.DataSource = _dataSourceDic["departments"];
-
-                departmentGridControl.DataSource = _dataSourceDic["departments"];
-                departmentGridView.LoadingPanelVisible = false;
-            }, TaskScheduler.FromCurrentSynchronizationContext());
-
-            qualificationGridView.LoadingPanelVisible = true;
-            await Task.Factory.StartNew(() =>
-            {
-                Task<ICachedData> tq = _communicationForm.DataManager.GetDataSourceAsync<CatalogQualificationDTO>();
-                tq.Wait();
-                var collection = tq.Result as CacheCollection<CatalogQualificationDTO>;
-                List<QualificationViewModel> l = collection.Select(dto => new QualificationViewModel(dto)).ToList();
-                var list = new ViewModelBindingList<QualificationViewModel>(l);           
-                _dataSourceDic.Add("qualifications", list);
-            }).ContinueWith((task) =>
-            {
-                qualificationsLookUpEdit.ValueMember = "Id";
-                qualificationsLookUpEdit.DisplayMember = "Qualification";
-                qualificationsLookUpEdit.DataSource = _dataSourceDic["qualifications"];
-
-                qualificationGridControl.DataSource = _dataSourceDic["qualifications"];
-                qualificationGridView.LoadingPanelVisible = false;
-            }, TaskScheduler.FromCurrentSynchronizationContext());
+            UpdateData();            
         }
         
         private void d_Click(object sender, ItemClickEventArgs e)
@@ -129,7 +75,7 @@ namespace VegFarm.Forms
 
         }
 
-        public async void Save()
+        public void SaveData()
         {
             foreach(var dataSource in _dataSourceDic.Values)
             {
@@ -150,6 +96,67 @@ namespace VegFarm.Forms
                     _communicationForm.DataManager.Create((BaseDTO)item.Dto);
                 }
             }
+        }
+
+        public async void UpdateData()
+        {
+            _dataSourceDic.Clear();
+            employeeGridView.LoadingPanelVisible = true;
+            await Task.Factory.StartNew(() =>
+            {
+                Task<ICachedData> te = _communicationForm.DataManager.GetDataSourceAsync<EmployeeDTO>();
+                te.Wait();
+                var collection = te.Result as CacheCollection<EmployeeDTO>;
+                List<EmployeeViewModel> l = collection.Select(dto => new EmployeeViewModel(dto)).ToList();
+                var list = new ViewModelBindingList<EmployeeViewModel>(l);
+                _dataSourceDic.Add("employees", list);
+
+            }).ContinueWith((task) =>
+            {
+                employeeGridControl.DataSource = _dataSourceDic["employees"];
+                employeeGridView.LoadingPanelVisible = false;
+            }, TaskScheduler.FromCurrentSynchronizationContext());
+
+            departmentGridView.LoadingPanelVisible = true;
+            await Task.Factory.StartNew(() =>
+            {
+                Task<ICachedData> td = _communicationForm.DataManager.GetDataSourceAsync<CatalogDepartmentDTO>();
+                td.Wait();
+                var collection = td.Result as CacheCollection<CatalogDepartmentDTO>;
+                List<DepartmentViewModel> l = collection.Select(dto => new DepartmentViewModel(dto)).ToList();
+                var list = new ViewModelBindingList<DepartmentViewModel>(l);
+                _dataSourceDic.Add("departments", list);
+
+            }).ContinueWith((task) =>
+            {
+                departmentsLookUpEdit.ValueMember = "Id";
+                departmentsLookUpEdit.DisplayMember = "Name";
+                departmentsLookUpEdit.DataSource = _dataSourceDic["departments"];
+
+                departmentGridControl.DataSource = _dataSourceDic["departments"];
+
+                colDepartment.Group();
+                departmentGridView.LoadingPanelVisible = false;
+            }, TaskScheduler.FromCurrentSynchronizationContext());
+
+            qualificationGridView.LoadingPanelVisible = true;
+            await Task.Factory.StartNew(() =>
+            {
+                Task<ICachedData> tq = _communicationForm.DataManager.GetDataSourceAsync<CatalogQualificationDTO>();
+                tq.Wait();
+                var collection = tq.Result as CacheCollection<CatalogQualificationDTO>;
+                List<QualificationViewModel> l = collection.Select(dto => new QualificationViewModel(dto)).ToList();
+                var list = new ViewModelBindingList<QualificationViewModel>(l);
+                _dataSourceDic.Add("qualifications", list);
+            }).ContinueWith((task) =>
+            {
+                qualificationsLookUpEdit.ValueMember = "Id";
+                qualificationsLookUpEdit.DisplayMember = "Qualification";
+                qualificationsLookUpEdit.DataSource = _dataSourceDic["qualifications"];
+
+                qualificationGridControl.DataSource = _dataSourceDic["qualifications"];
+                qualificationGridView.LoadingPanelVisible = false;
+            }, TaskScheduler.FromCurrentSynchronizationContext());
         }
 
         private void EmployeeForm_FormClosed(object sender, FormClosedEventArgs e)

@@ -54,6 +54,7 @@
     <Compile Include="Implementation\EmployeeMapperConfig.cs" />
     <Compile Include="Implementation\CatalogService.cs" />
     <Compile Include="Implementation\EmployeeService.cs" />
+    <Compile Include="Implementation\QualificationNames.cs" />
     <Compile Include="Service\IEmployeeService.cs" />
     <Compile Include="Service\IDbContext.cs" />
     <Compile Include="Implementation\Repository.cs" />

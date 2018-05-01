@@ -23,6 +23,8 @@ namespace VerFarm.Kernel.Data.Entity
 
         public bool Probation { get; set; }
 
+        public int ProbationDays { get; set; }
+
         public int QualificationId { get; set; }
 
         public int DepartmentId { get; set; }

@@ -71,7 +71,22 @@
     <Compile Include="Entity\Employee.cs" />
     <Compile Include="Entity\EmployeeTransfer.cs" />
     <Compile Include="Entity\EntityBase.cs" />
+    <Compile Include="Migrations\201804240122596_InitialCreate.cs" />
+    <Compile Include="Migrations\201804240122596_InitialCreate.Designer.cs">
+      <DependentUpon>201804240122596_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805012123084_add ProbationDays.cs" />
+    <Compile Include="Migrations\201805012123084_add ProbationDays.Designer.cs">
+      <DependentUpon>201805012123084_add ProbationDays.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Migrations\201804240122596_InitialCreate.resx">
+      <DependentUpon>201804240122596_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805012123084_add ProbationDays.resx">
+      <DependentUpon>201805012123084_add ProbationDays.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

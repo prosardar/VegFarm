@@ -2,6 +2,7 @@
 {
     internal interface ISaveForm
     {
-        void Save();
+        void SaveData();
+        void UpdateData();
     }
 }
