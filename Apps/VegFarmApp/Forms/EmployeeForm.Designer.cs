@@ -54,6 +54,7 @@
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -100,10 +101,10 @@
             // 
             // qualificationGridControl
             // 
-            this.qualificationGridControl.Location = new System.Drawing.Point(36, 364);
+            this.qualificationGridControl.Location = new System.Drawing.Point(36, 354);
             this.qualificationGridControl.MainView = this.qualificationGridView;
             this.qualificationGridControl.Name = "qualificationGridControl";
-            this.qualificationGridControl.Size = new System.Drawing.Size(788, 176);
+            this.qualificationGridControl.Size = new System.Drawing.Size(788, 186);
             this.qualificationGridControl.TabIndex = 7;
             this.qualificationGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.qualificationGridView});
@@ -159,10 +160,10 @@
             // 
             // departmentGridControl
             // 
-            this.departmentGridControl.Location = new System.Drawing.Point(36, 364);
+            this.departmentGridControl.Location = new System.Drawing.Point(36, 354);
             this.departmentGridControl.MainView = this.departmentGridView;
             this.departmentGridControl.Name = "departmentGridControl";
-            this.departmentGridControl.Size = new System.Drawing.Size(788, 176);
+            this.departmentGridControl.Size = new System.Drawing.Size(788, 186);
             this.departmentGridControl.TabIndex = 5;
             this.departmentGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.departmentGridView});
@@ -210,7 +211,7 @@
             this.employeeGridControl.Location = new System.Drawing.Point(24, 42);
             this.employeeGridControl.MainView = this.employeeGridView;
             this.employeeGridControl.Name = "employeeGridControl";
-            this.employeeGridControl.Size = new System.Drawing.Size(812, 242);
+            this.employeeGridControl.Size = new System.Drawing.Size(812, 232);
             this.employeeGridControl.TabIndex = 4;
             this.employeeGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.employeeGridView});
@@ -239,6 +240,7 @@
             // 
             // employeeGridView
             // 
+            this.employeeGridView.ColumnPanelRowHeight = 35;
             this.employeeGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
             this.gridColumn2,
@@ -249,7 +251,8 @@
             this.gridColumn7,
             this.gridColumn12,
             this.gridColumn13,
-            this.gridColumn14});
+            this.gridColumn14,
+            this.gridColumn6});
             this.employeeGridView.GridControl = this.employeeGridControl;
             this.employeeGridView.Name = "employeeGridView";
             this.employeeGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
@@ -292,7 +295,7 @@
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 4;
-            this.gridColumn4.Width = 177;
+            this.gridColumn4.Width = 206;
             // 
             // gridColumn5
             // 
@@ -305,7 +308,7 @@
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 3;
-            this.gridColumn5.Width = 213;
+            this.gridColumn5.Width = 248;
             // 
             // colDepartment
             // 
@@ -332,7 +335,7 @@
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 0;
-            this.gridColumn7.Width = 104;
+            this.gridColumn7.Width = 121;
             // 
             // gridColumn12
             // 
@@ -344,6 +347,7 @@
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.Visible = true;
             this.gridColumn12.VisibleIndex = 1;
+            this.gridColumn12.Width = 87;
             // 
             // gridColumn13
             // 
@@ -355,7 +359,7 @@
             this.gridColumn13.Name = "gridColumn13";
             this.gridColumn13.Visible = true;
             this.gridColumn13.VisibleIndex = 2;
-            this.gridColumn13.Width = 124;
+            this.gridColumn13.Width = 144;
             // 
             // gridColumn14
             // 
@@ -370,7 +374,22 @@
             this.gridColumn14.Name = "gridColumn14";
             this.gridColumn14.Visible = true;
             this.gridColumn14.VisibleIndex = 5;
-            this.gridColumn14.Width = 101;
+            this.gridColumn14.Width = 117;
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn6.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn6.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn6.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn6.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn6.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn6.Caption = "Наличие одобрения на перевод";
+            this.gridColumn6.FieldName = "TransferHeadAssent";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 7;
+            this.gridColumn6.Width = 141;
             // 
             // layoutControlGroup1
             // 
@@ -391,7 +410,7 @@
             this.layoutControlItem1});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(840, 288);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(840, 278);
             this.layoutControlGroup2.Text = "Сотрудники";
             // 
             // layoutControlItem1
@@ -400,7 +419,7 @@
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.MinSize = new System.Drawing.Size(104, 24);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(816, 246);
+            this.layoutControlItem1.Size = new System.Drawing.Size(816, 236);
             this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
@@ -410,9 +429,9 @@
             this.layoutControlGroup3.ExpandButtonVisible = true;
             this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.tabbedControlGroup1});
-            this.layoutControlGroup3.Location = new System.Drawing.Point(0, 288);
+            this.layoutControlGroup3.Location = new System.Drawing.Point(0, 278);
             this.layoutControlGroup3.Name = "layoutControlGroup3";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(840, 268);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(840, 278);
             this.layoutControlGroup3.Text = "Справочники";
             // 
             // tabbedControlGroup1
@@ -421,7 +440,7 @@
             this.tabbedControlGroup1.Name = "tabbedControlGroup1";
             this.tabbedControlGroup1.SelectedTabPage = this.layoutControlGroup4;
             this.tabbedControlGroup1.SelectedTabPageIndex = 0;
-            this.tabbedControlGroup1.Size = new System.Drawing.Size(816, 226);
+            this.tabbedControlGroup1.Size = new System.Drawing.Size(816, 236);
             this.tabbedControlGroup1.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup4,
             this.layoutControlGroup5});
@@ -432,7 +451,7 @@
             this.layoutControlItem2});
             this.layoutControlGroup4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup4.Name = "layoutControlGroup4";
-            this.layoutControlGroup4.Size = new System.Drawing.Size(792, 180);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(792, 190);
             this.layoutControlGroup4.Text = "Отделы";
             // 
             // layoutControlItem2
@@ -440,7 +459,7 @@
             this.layoutControlItem2.Control = this.departmentGridControl;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(792, 180);
+            this.layoutControlItem2.Size = new System.Drawing.Size(792, 190);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -450,7 +469,7 @@
             this.layoutControlItem3});
             this.layoutControlGroup5.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup5.Name = "layoutControlGroup5";
-            this.layoutControlGroup5.Size = new System.Drawing.Size(792, 180);
+            this.layoutControlGroup5.Size = new System.Drawing.Size(792, 190);
             this.layoutControlGroup5.Text = "Квалификация";
             // 
             // layoutControlItem3
@@ -458,7 +477,7 @@
             this.layoutControlItem3.Control = this.qualificationGridControl;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(792, 180);
+            this.layoutControlItem3.Size = new System.Drawing.Size(792, 190);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
@@ -470,7 +489,6 @@
             this.Controls.Add(this.layoutControl1);
             this.Name = "EmployeeForm";
             this.Text = "Учёт сотрудников";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EmployeeForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.qualificationGridControl)).EndInit();
@@ -530,5 +548,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
     }
 }

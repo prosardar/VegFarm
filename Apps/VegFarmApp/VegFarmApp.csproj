@@ -105,6 +105,15 @@
     <Compile Include="Data\DataManager.cs" />
     <Compile Include="Data\ICachedData.cs" />
     <Compile Include="Data\VegClient.cs" />
+    <Compile Include="Forms\AuditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AuditForm.Designer.cs">
+      <DependentUpon>AuditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BaseTabForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Model\DepartmentViewModel.cs" />
     <Compile Include="Model\BaseViewModel.cs" />
     <Compile Include="Forms\CommunicationWithMainForm.cs" />
@@ -136,6 +145,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\ViewModelBindingList.cs" />
+    <EmbeddedResource Include="Forms\AuditForm.resx">
+      <DependentUpon>AuditForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\EmployeeForm.resx">
       <DependentUpon>EmployeeForm.cs</DependentUpon>
     </EmbeddedResource>

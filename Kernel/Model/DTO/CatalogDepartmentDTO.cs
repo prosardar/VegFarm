@@ -22,5 +22,10 @@ namespace VerFarm.Kernel.Model.DTO
 
         [DataMember]
         public ICollection<EmployeeTransferDTO> EmployeeTransfer { get; set; }
+
+        public bool IsFull()
+        {
+            return Employee.Count == EmployeeCount;
+        }
     }
 }

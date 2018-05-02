@@ -30,6 +30,9 @@ namespace VerFarm.Kernel.Model.DTO
         public int ProbationDays { get; set; }
 
         [DataMember]
+        public bool TransferHeadAssent { get; set; }
+
+        [DataMember]
         public int QualificationId { get; set; }
 
         [DataMember]

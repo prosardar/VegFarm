@@ -74,6 +74,16 @@ namespace VegFarm.Model
             }
         }
 
+        public bool TransferHeadAssent
+        {
+            get => Dto.TransferHeadAssent;
+            set
+            {
+                bool assent = Dto.TransferHeadAssent;
+                SetProperty(ref assent, value);
+            }
+        }
+
         public int QualificationId
         {
             get => Dto.QualificationId;

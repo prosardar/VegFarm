@@ -36,6 +36,7 @@
             this.OrgStructureBarItem = new DevExpress.XtraBars.BarButtonItem();
             this.SaveBarItem = new DevExpress.XtraBars.BarButtonItem();
             this.RefreshBarItem = new DevExpress.XtraBars.BarButtonItem();
+            this.ShowAuditBarItem = new DevExpress.XtraBars.BarButtonItem();
             this.MainRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -59,9 +60,10 @@
             this.OrgStructureBarItem,
             this.SaveBarItem,
             this.RefreshBarItem,
-            this.ExitBarItem});
+            this.ExitBarItem,
+            this.ShowAuditBarItem});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 1;
+            this.ribbonControl.MaxItemId = 2;
             this.ribbonControl.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -114,6 +116,15 @@
             this.RefreshBarItem.Name = "RefreshBarItem";
             this.RefreshBarItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.RefreshBarItem_ItemClick);
             // 
+            // ShowAuditBarItem
+            // 
+            this.ShowAuditBarItem.Caption = "История изменений";
+            this.ShowAuditBarItem.Glyph = ((System.Drawing.Image)(resources.GetObject("ShowAuditBarItem.Glyph")));
+            this.ShowAuditBarItem.Id = 1;
+            this.ShowAuditBarItem.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("ShowAuditBarItem.LargeGlyph")));
+            this.ShowAuditBarItem.Name = "ShowAuditBarItem";
+            this.ShowAuditBarItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ShowAuditBarItem_ItemClick);
+            // 
             // MainRibbonPage
             // 
             this.MainRibbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -132,6 +143,7 @@
             // ribbonPageGroup2
             // 
             this.ribbonPageGroup2.ItemLinks.Add(this.OrgStructureBarItem);
+            this.ribbonPageGroup2.ItemLinks.Add(this.ShowAuditBarItem);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Предприятие";
             // 
@@ -149,6 +161,7 @@
             this.xtraTabbedMdiManager.HeaderButtons = DevExpress.XtraTab.TabButtons.Close;
             this.xtraTabbedMdiManager.HeaderButtonsShowMode = DevExpress.XtraTab.TabButtonShowMode.Always;
             this.xtraTabbedMdiManager.MdiParent = this;
+            this.xtraTabbedMdiManager.PageRemoved += new DevExpress.XtraTabbedMdi.MdiTabPageEventHandler(this.xtraTabbedMdiManager_PageRemoved);
             // 
             // navBarControl1
             // 
@@ -217,6 +230,7 @@
         private DevExpress.XtraNavBar.NavBarControl navBarControl1;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup1;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup2;
+        private DevExpress.XtraBars.BarButtonItem ShowAuditBarItem;
     }
 }
 

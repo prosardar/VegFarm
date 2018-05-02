@@ -14,22 +14,14 @@ using DevExpress.XtraGrid.Views.Grid;
 
 namespace VegFarm.Forms
 {
-    public partial class EmployeeForm : Form, ISaveForm
+    public partial class EmployeeForm : BaseTabForm
     {
-        private CommunicationWithMainForm _communicationForm;
-        private RibbonControl _ribbonControl;
-        private Dictionary<string, object> _dataSourceDic = new Dictionary<string, object>();
-
-        public EmployeeForm(CommunicationWithMainForm communicationForm)
+        public EmployeeForm(CommunicationWithMainForm communicationForm) : base(communicationForm)
         {
-            InitializeComponent();
-            _communicationForm = communicationForm;
-            MdiParent = _communicationForm.MainForm;
-            _ribbonControl = _communicationForm.RibbonControl;
-            AddRibbonGroup();
+            InitializeComponent();         
         }
 
-        private void AddRibbonGroup()
+        public override void AddRibbonGroup()
         {
             var mainPage = _ribbonControl.Pages["Главная"];
             var pageGroup = mainPage.Groups.GetGroupByName("EmployeePageGroup");
@@ -42,7 +34,6 @@ namespace VegFarm.Forms
             d.Caption = "Действие";
             d.Id = 1;
             d.Name = "SameAction";
-            d.ItemClick += new ItemClickEventHandler(d_Click);
 
             pageGroup = new RibbonPageGroup();
             pageGroup.ItemLinks.Add(d);
@@ -51,37 +42,14 @@ namespace VegFarm.Forms
 
             mainPage.Groups.Add(pageGroup);
         }
-
-        private void DeleteRibbonGroup()
+              
+        public override void SaveData()
         {
-            var mainPage = _ribbonControl.Pages["Главная"];
-            var pageGroup = mainPage.Groups.GetGroupByName("EmployeePageGroup");
-            if (pageGroup == null)
-            {
-                return;
-            }
-            mainPage.Groups.Remove(pageGroup);
-            pageGroup = null;
-        }
-
-        public async void ShowAndInitData()
-        {
-            Show();
-            UpdateData();            
-        }
-        
-        private void d_Click(object sender, ItemClickEventArgs e)
-        {
-
-        }
-
-        public void SaveData()
-        {
-            foreach(var dataSource in _dataSourceDic.Values)
+            foreach (var dataSource in _dataSourceDic.Values)
             {
                 var list = dataSource as IViewModelBindingList;
                 IList<IViewModel> deleted = list.GetDeletedItems();
-                foreach(var item in deleted)
+                foreach (var item in deleted)
                 {
                     _communicationForm.DataManager.Delete(item.DtoType, item.DtoId);
                 }
@@ -98,7 +66,7 @@ namespace VegFarm.Forms
             }
         }
 
-        public async void UpdateData()
+        public override async void UpdateData()
         {
             _dataSourceDic.Clear();
             employeeGridView.LoadingPanelVisible = true;
@@ -157,11 +125,6 @@ namespace VegFarm.Forms
                 qualificationGridControl.DataSource = _dataSourceDic["qualifications"];
                 qualificationGridView.LoadingPanelVisible = false;
             }, TaskScheduler.FromCurrentSynchronizationContext());
-        }
-
-        private void EmployeeForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            DeleteRibbonGroup();
         }
 
         private void gridView_KeyDown(object sender, KeyEventArgs e)

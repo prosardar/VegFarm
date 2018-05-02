@@ -13,10 +13,14 @@ namespace VerFarm.Kernel.BL.Implemantation
     public class EmployeeService : IEmployeeService
     {
         private Repository<Employee, EmployeeDTO> _employeeRep;
+        private Repository<CatalogDepartment, CatalogDepartmentDTO> _departmentRep;
+        private Repository<EmployeeTransfer, EmployeeTransferDTO> _transferRep;
 
         public EmployeeService(IDbContext context, IMapper mapper)
         {
             _employeeRep = new Repository<Employee, EmployeeDTO>(context, mapper);
+            _departmentRep = new Repository<CatalogDepartment, CatalogDepartmentDTO>(context, mapper);
+            _transferRep = new Repository<EmployeeTransfer, EmployeeTransferDTO>(context, mapper);
         }
 
         #region CRUD Interface Implementations
@@ -24,12 +28,12 @@ namespace VerFarm.Kernel.BL.Implemantation
         public async Task<IBaseDTO> Add(IBaseDTO dto)
         {
             EmployeeDTO newEmp = (EmployeeDTO)dto;
-            if(newEmp.QualificationId > (int)QualificationNames.Инженер)
+            if (newEmp.QualificationId > (int)QualificationNames.Инженер)
             {
                 newEmp.SetError("Новый сотрудник не должен быть выше по квалификации, чем 'Инженер'.");
                 return newEmp;
             }
-            if(newEmp.Probation == false)
+            if (newEmp.Probation == false)
             {
                 newEmp.SetError("Новый сотрудник должен быть на испытательном сроке.");
                 return newEmp;
@@ -61,10 +65,27 @@ namespace VerFarm.Kernel.BL.Implemantation
         {
             EmployeeDTO newEmp = (EmployeeDTO)newDto;
             EmployeeDTO oldEmp = (EmployeeDTO)await _employeeRep.GetById(newDto.Id);
-            if (oldEmp.DepartmentId != newEmp.DepartmentId && newEmp.Probation)
+            if (oldEmp.DepartmentId != newEmp.DepartmentId)
             {
-                newDto.SetError("Нельзя переводить сотрудник на исп. сроке!");
-                return newEmp;
+                if (newEmp.Probation)
+                {
+                    newDto.SetError("Нельзя переводить сотрудника на исп. сроке!");
+                    return newEmp;
+                }
+                var department = (CatalogDepartmentDTO)await _departmentRep.GetById(newEmp.DepartmentId);
+                if (department.IsFull() && newEmp.TransferHeadAssent == false)
+                {
+                    newDto.SetError("Нельзя переводить сотрудника в отдел с максимальным кол-ом сотрудников, без согласия руководства!");
+                    return newEmp;
+                }
+                EmployeeTransferDTO transfer = new EmployeeTransferDTO()
+                {
+                    Confirm = true,
+                    ConfirmDate = DateTime.Now,
+                    EmployeeId = newEmp.Id,
+                    ToDepartmentId = newEmp.DepartmentId
+                };
+                await _transferRep.Add(transfer);
             }
             return await _employeeRep.Update(newDto);
         }
