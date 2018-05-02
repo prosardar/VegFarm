@@ -79,6 +79,10 @@
     <Compile Include="Migrations\201805012123084_add ProbationDays.Designer.cs">
       <DependentUpon>201805012123084_add ProbationDays.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805021159175_some else attr.cs" />
+    <Compile Include="Migrations\201805021159175_some else attr.Designer.cs">
+      <DependentUpon>201805021159175_some else attr.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Migrations\201804240122596_InitialCreate.resx">
@@ -86,6 +90,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805012123084_add ProbationDays.resx">
       <DependentUpon>201805012123084_add ProbationDays.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805021159175_some else attr.resx">
+      <DependentUpon>201805021159175_some else attr.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

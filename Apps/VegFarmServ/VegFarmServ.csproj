@@ -114,6 +114,9 @@
     <Compile Include="App_Start\JsonpMediaTypeFormatter.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\EmployeeTransferController.cs" />
+    <Compile Include="Controllers\AuditController.cs" />
     <Compile Include="Controllers\CatalogController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Program.cs" />

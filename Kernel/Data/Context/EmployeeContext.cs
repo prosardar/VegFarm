@@ -67,7 +67,7 @@ namespace VerFarm.Kernel.Data.Context
             modelBuilder.Entity<Employee>()
                 .HasMany(e => e.EmployeeTransfer)
                 .WithRequired(e => e.Employee)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
         }
     }
 }

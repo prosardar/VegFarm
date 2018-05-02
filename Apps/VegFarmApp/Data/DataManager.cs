@@ -21,6 +21,8 @@ namespace VegFarm.Data
             _client.RegisterQuery(typeof(EmployeeDTO), "api/employees/");
             _client.RegisterQuery(typeof(CatalogDepartmentDTO), "api/catalog?name=departments");
             _client.RegisterQuery(typeof(CatalogQualificationDTO), "api/catalog?name=qualifications");
+            _client.RegisterQuery(typeof(EmployeeTransferDTO), "api/employeeTransfer/");
+            _client.RegisterQuery(typeof(ChangeLogDTO), "api/audit/");
         }
 
         internal async Task<ICachedData> GetDataSourceAsync<TDto>() where TDto : BaseDTO

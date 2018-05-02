@@ -15,9 +15,9 @@ namespace VerFarm.Kernel.Data.Context
 
         public AuditDbContext(string nameOrConnectionString) : base(nameOrConnectionString)
         {
-            
+
         }
-        
+
         public override int SaveChanges()
         {
             SaveWithAudit();
@@ -39,8 +39,8 @@ namespace VerFarm.Kernel.Data.Context
         private void SaveWithAudit()
         {
             var auditFactory = new AuditTrailFactory(this);
-            var entityList = ChangeTracker.Entries().Where(p => p.State == EntityState.Added || p.State == EntityState.Deleted || p.State == EntityState.Modified
-                || (p.Entity is ChangeLog) == false || p.Entity != null);
+            var entityList = ChangeTracker.Entries().Where(p => p.Entity != null && p.State != EntityState.Unchanged && (p.State == EntityState.Added 
+                || p.State == EntityState.Deleted || p.State == EntityState.Modified || (p.Entity is ChangeLog) == false));
 
             entityList.ToList().ForEach(entity =>
             {
@@ -67,7 +67,7 @@ namespace VerFarm.Kernel.Data.Context
 
             modelBuilder.Entity<ChangeLog>()
                 .Property(e => e.PrimaryKeyValue)
-                .IsUnicode(false);     
+                .IsUnicode(false);
         }
     }
 }

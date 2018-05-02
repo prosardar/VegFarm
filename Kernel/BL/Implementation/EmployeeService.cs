@@ -43,11 +43,19 @@ namespace VerFarm.Kernel.BL.Implemantation
                 newEmp.SetError("У нового сотрудника должен быть задан исп. срок (1, 2 или 3 месяца)!");
                 return newEmp;
             }
+            EmployeeTransferDTO transfer = new EmployeeTransferDTO()
+            {
+                Confirm = true,
+                ConfirmDate = DateTime.Now,
+                EmployeeId = newEmp.Id,
+                ToDepartmentId = newEmp.DepartmentId
+            };
+            await _transferRep.Add(transfer);
             return await _employeeRep.Add(dto);
         }
 
         public async Task<bool> Delete(int id)
-        {
+        {            
             return await _employeeRep.Delete(id);
         }
 

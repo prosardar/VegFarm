@@ -47,6 +47,8 @@ namespace VegFarm
             container.RegisterType<IDbContext, EFDbContext>();
             container.RegisterType<IEmployeeService, EmployeeService>();
             container.RegisterType<ICatalogService<IBaseDTO>, CatalogService>();
+            container.RegisterType<IAuditService, AuditService>();
+            container.RegisterType<IEmployeeTransferService, EmployeeTransferService>();
         }
     }
 }

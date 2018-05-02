@@ -1,24 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
 using VerFarm.Kernel.Model.DTO;
 using VerFarm.Kernel.BL.Service;
-using System.Linq;
 
 namespace VegFarm.Controllers
 {
-    public class EmployeesController : BaseController
+    public class AuditController : BaseController
     {
-        private IEmployeeService _service => (IEmployeeService)Service;
+        public IAuditService _service => (IAuditService)Service;
 
-        public EmployeesController()
+        public AuditController()
         {
 
         }
 
-        public EmployeesController(IEmployeeService service) : base(service)
+        public AuditController(IAuditService service) : base(service)
         {
         }
     }

@@ -13,7 +13,7 @@ using VerFarm.Kernel.Model.DTO;
 
 namespace VegFarm.Forms
 {
-    public partial class AuditForm : BaseTabForm
+    public partial class AuditForm : BaseTabbedForm
     {
         public AuditForm(CommunicationWithMainForm communicationForm) : base(communicationForm)
         {
@@ -28,23 +28,40 @@ namespace VegFarm.Forms
         {
         }
 
-        public override void UpdateData()
+        public override async void UpdateData()
         {
-            //employeeGridView.LoadingPanelVisible = true;
-            //await Task.Factory.StartNew(() =>
-            //{
-            //    Task<ICachedData> te = _communicationForm.DataManager.GetDataSourceAsync<EmployeeDTO>();
-            //    te.Wait();
-            //    var collection = te.Result as CacheCollection<EmployeeDTO>;
-            //    List<EmployeeViewModel> l = collection.Select(dto => new EmployeeViewModel(dto)).ToList();
-            //    var list = new ViewModelBindingList<EmployeeViewModel>(l);
-            //    _dataSourceDic.Add("employees", list);
+            DataSourceDic.Clear();
+            transferGridView.LoadingPanelVisible = true;
+            await Task.Factory.StartNew(() =>
+            {
+                Task<ICachedData> te = CommunicationForm.DataManager.GetDataSourceAsync<EmployeeTransferDTO>();
+                te.Wait();
+                var collection = te.Result as CacheCollection<EmployeeTransferDTO>;
+                List<EmployeeTransferViewModel> l = collection.Select(dto => new EmployeeTransferViewModel(dto)).ToList();
+                var list = new ViewModelBindingList<EmployeeTransferViewModel>(l);
+                DataSourceDic.Add("employeeTransfers", list);
 
-            //}).ContinueWith((task) =>
-            //{
-            //    employeeGridControl.DataSource = _dataSourceDic["employees"];
-            //    employeeGridView.LoadingPanelVisible = false;
-            //}, TaskScheduler.FromCurrentSynchronizationContext());
+            }).ContinueWith((task) =>
+            {
+                transferGridControl.DataSource = DataSourceDic["employeeTransfers"];
+                transferGridView.LoadingPanelVisible = false;
+            }, TaskScheduler.FromCurrentSynchronizationContext());
+
+            auditGridView.LoadingPanelVisible = true;
+            await Task.Factory.StartNew(() =>
+            {
+                Task<ICachedData> te = CommunicationForm.DataManager.GetDataSourceAsync<ChangeLogDTO>();
+                te.Wait();
+                var collection = te.Result as CacheCollection<ChangeLogDTO>;
+                List<AuditViewModel> l = collection.Select(dto => new AuditViewModel(dto)).ToList();
+                var list = new ViewModelBindingList<AuditViewModel>(l);
+                DataSourceDic.Add("audits", list);
+
+            }).ContinueWith((task) =>
+            {
+                auditGridControl.DataSource = DataSourceDic["audits"];
+                auditGridView.LoadingPanelVisible = false;
+            }, TaskScheduler.FromCurrentSynchronizationContext());
         }
     }
 }

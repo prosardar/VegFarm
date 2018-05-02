@@ -11,8 +11,8 @@ using VerFarm.Kernel.Model.DTO;
 
 namespace VerFarm.Kernel.BL.Implemantation
 {
-    public class Repository<TEntity, TDto> : IService<TDto> 
-        where TEntity : BaseEntity 
+    public class Repository<TEntity, TDto> : IService<TDto>
+        where TEntity : BaseEntity
         where TDto : IBaseDTO
     {
         protected readonly IDbContext Db;
@@ -41,26 +41,54 @@ namespace VerFarm.Kernel.BL.Implemantation
 
         public async Task<IBaseDTO> GetById(int id)
         {
-            TEntity entity = await Db.GetByIdAsync<TEntity>(id);
-            return Mapper.Map<TDto>(entity);
+            try
+            {
+                TEntity entity = await Db.GetByIdAsync<TEntity>(id);
+                return Mapper.Map<TDto>(entity);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         public async Task<IBaseDTO> Update(IBaseDTO dto)
         {
-            TEntity entity = Mapper.Map<TEntity>(dto);
-            TEntity newEntity = await Db.UpdateAsync(entity);
-            return Mapper.Map<TDto>(newEntity);
+            try
+            {
+                TEntity entity = Mapper.Map<TEntity>(dto);
+                TEntity newEntity = await Db.UpdateAsync(entity);
+                return Mapper.Map<TDto>(newEntity);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         public async Task<IEnumerable<IBaseDTO>> GetAll()
         {
-            IEnumerable<TEntity> entityies = await Db.GetAllAsync<TEntity>();
-            return entityies.Select(e => (IBaseDTO) Mapper.Map<TDto>(e));
+            try
+            {
+                IEnumerable<TEntity> entityies = await Db.GetAllAsync<TEntity>();
+                return entityies.Select(e => (IBaseDTO)Mapper.Map<TDto>(e));
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         public async Task<bool> Delete(int id)
         {
-            return await Db.DeleteAsync<TEntity>(id);
+            try
+            {
+                return await Db.DeleteAsync<TEntity>(id);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
     }
 }

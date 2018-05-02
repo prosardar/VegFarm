@@ -14,7 +14,7 @@ namespace VegFarm.Model
 
         public int DtoId => Dto.Id;
 
-        public bool HasErrors => throw new NotImplementedException();
+        public bool HasErrors { get; set; }
 
         public StateViewModel State { get; set; }
 

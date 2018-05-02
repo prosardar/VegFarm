@@ -13,7 +13,7 @@ using VegFarm.Data;
 namespace VegFarm.Forms
 {
     public partial class MainForm : RibbonForm, IMainRibbonForm
-    {        
+    {
         private CommunicationWithMainForm _communicationForm;
         private Dictionary<Type, Form> _openedForms = new Dictionary<Type, Form>();
 
@@ -23,21 +23,26 @@ namespace VegFarm.Forms
             _communicationForm = new CommunicationWithMainForm(this);
         }
 
+        #region TabbedForm button's handlers
+
         private void OrgStructureBarItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            var form = GetOpenedForm<EmployeeForm>();
-            form.InitData();
-            form.ShowAndBringToFront();
+            InitAndShowForm<EmployeeForm>();
         }
 
         private void ShowAuditBarItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            var form = GetOpenedForm<AuditForm>();
+            InitAndShowForm<AuditForm>();
+        }
+
+        private void InitAndShowForm<T>() where T : BaseTabbedForm
+        {
+            var form = EnsureGetOpenedForm<T>();
             form.InitData();
             form.ShowAndBringToFront();
         }
 
-        private T GetOpenedForm<T>() where T : Form
+        private T EnsureGetOpenedForm<T>() where T : BaseTabbedForm
         {
             if (_openedForms.ContainsKey(typeof(T)))
             {
@@ -47,6 +52,10 @@ namespace VegFarm.Forms
             _openedForms.Add(typeof(T), newForm);
             return newForm;
         }
+
+        #endregion
+
+        #region Main form button's handlers
 
         private void SaveBarItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -65,6 +74,8 @@ namespace VegFarm.Forms
             Application.Exit();
         }
 
+        #endregion
+        
         public RibbonControl GetRibbonControl()
         {
             return ribbonControl;
@@ -72,8 +83,7 @@ namespace VegFarm.Forms
 
         private void xtraTabbedMdiManager_PageRemoved(object sender, DevExpress.XtraTabbedMdi.MdiTabPageEventArgs e)
         {
-            var form = e.Page.MdiChild as Form;
-            _openedForms.Remove(form.GetType());
+            _openedForms.Remove(e.Page.MdiChild.GetType());
         }
     }
 }

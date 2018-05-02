@@ -14,7 +14,7 @@ using DevExpress.XtraGrid.Views.Grid;
 
 namespace VegFarm.Forms
 {
-    public partial class EmployeeForm : BaseTabForm
+    public partial class EmployeeForm : BaseTabbedForm
     {
         public EmployeeForm(CommunicationWithMainForm communicationForm) : base(communicationForm)
         {
@@ -23,7 +23,7 @@ namespace VegFarm.Forms
 
         public override void AddRibbonGroup()
         {
-            var mainPage = _ribbonControl.Pages["Главная"];
+            var mainPage = RibbonControl.Pages["Главная"];
             var pageGroup = mainPage.Groups.GetGroupByName("EmployeePageGroup");
             if (pageGroup != null)
             {
@@ -45,63 +45,63 @@ namespace VegFarm.Forms
               
         public override void SaveData()
         {
-            foreach (var dataSource in _dataSourceDic.Values)
+            foreach (var dataSource in DataSourceDic.Values)
             {
                 var list = dataSource as IViewModelBindingList;
                 IList<IViewModel> deleted = list.GetDeletedItems();
                 foreach (var item in deleted)
                 {
-                    _communicationForm.DataManager.Delete(item.DtoType, item.DtoId);
+                    CommunicationForm.DataManager.Delete(item.DtoType, item.DtoId);
                 }
                 IList<IViewModel> changed = list.GetChangedItems();
                 foreach (var item in changed)
                 {
-                    _communicationForm.DataManager.Update((BaseDTO)item.Dto);
+                    CommunicationForm.DataManager.Update((BaseDTO)item.Dto);
                 }
                 IList<IViewModel> added = list.GetAddedItems();
                 foreach (var item in added)
                 {
-                    _communicationForm.DataManager.Create((BaseDTO)item.Dto);
+                    CommunicationForm.DataManager.Create((BaseDTO)item.Dto);
                 }
             }
         }
 
         public override async void UpdateData()
         {
-            _dataSourceDic.Clear();
+            DataSourceDic.Clear();
             employeeGridView.LoadingPanelVisible = true;
             await Task.Factory.StartNew(() =>
             {
-                Task<ICachedData> te = _communicationForm.DataManager.GetDataSourceAsync<EmployeeDTO>();
+                Task<ICachedData> te = CommunicationForm.DataManager.GetDataSourceAsync<EmployeeDTO>();
                 te.Wait();
                 var collection = te.Result as CacheCollection<EmployeeDTO>;
                 List<EmployeeViewModel> l = collection.Select(dto => new EmployeeViewModel(dto)).ToList();
                 var list = new ViewModelBindingList<EmployeeViewModel>(l);
-                _dataSourceDic.Add("employees", list);
+                DataSourceDic.Add("employees", list);
 
             }).ContinueWith((task) =>
             {
-                employeeGridControl.DataSource = _dataSourceDic["employees"];
+                employeeGridControl.DataSource = DataSourceDic["employees"];
                 employeeGridView.LoadingPanelVisible = false;
             }, TaskScheduler.FromCurrentSynchronizationContext());
 
             departmentGridView.LoadingPanelVisible = true;
             await Task.Factory.StartNew(() =>
             {
-                Task<ICachedData> td = _communicationForm.DataManager.GetDataSourceAsync<CatalogDepartmentDTO>();
+                Task<ICachedData> td = CommunicationForm.DataManager.GetDataSourceAsync<CatalogDepartmentDTO>();
                 td.Wait();
                 var collection = td.Result as CacheCollection<CatalogDepartmentDTO>;
                 List<DepartmentViewModel> l = collection.Select(dto => new DepartmentViewModel(dto)).ToList();
                 var list = new ViewModelBindingList<DepartmentViewModel>(l);
-                _dataSourceDic.Add("departments", list);
+                DataSourceDic.Add("departments", list);
 
             }).ContinueWith((task) =>
             {
                 departmentsLookUpEdit.ValueMember = "Id";
                 departmentsLookUpEdit.DisplayMember = "Name";
-                departmentsLookUpEdit.DataSource = _dataSourceDic["departments"];
+                departmentsLookUpEdit.DataSource = DataSourceDic["departments"];
 
-                departmentGridControl.DataSource = _dataSourceDic["departments"];
+                departmentGridControl.DataSource = DataSourceDic["departments"];
 
                 colDepartment.Group();
                 departmentGridView.LoadingPanelVisible = false;
@@ -110,19 +110,19 @@ namespace VegFarm.Forms
             qualificationGridView.LoadingPanelVisible = true;
             await Task.Factory.StartNew(() =>
             {
-                Task<ICachedData> tq = _communicationForm.DataManager.GetDataSourceAsync<CatalogQualificationDTO>();
+                Task<ICachedData> tq = CommunicationForm.DataManager.GetDataSourceAsync<CatalogQualificationDTO>();
                 tq.Wait();
                 var collection = tq.Result as CacheCollection<CatalogQualificationDTO>;
                 List<QualificationViewModel> l = collection.Select(dto => new QualificationViewModel(dto)).ToList();
                 var list = new ViewModelBindingList<QualificationViewModel>(l);
-                _dataSourceDic.Add("qualifications", list);
+                DataSourceDic.Add("qualifications", list);
             }).ContinueWith((task) =>
             {
                 qualificationsLookUpEdit.ValueMember = "Id";
                 qualificationsLookUpEdit.DisplayMember = "Qualification";
-                qualificationsLookUpEdit.DataSource = _dataSourceDic["qualifications"];
+                qualificationsLookUpEdit.DataSource = DataSourceDic["qualifications"];
 
-                qualificationGridControl.DataSource = _dataSourceDic["qualifications"];
+                qualificationGridControl.DataSource = DataSourceDic["qualifications"];
                 qualificationGridView.LoadingPanelVisible = false;
             }, TaskScheduler.FromCurrentSynchronizationContext());
         }

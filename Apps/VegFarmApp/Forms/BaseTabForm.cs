@@ -5,25 +5,24 @@ using VegFarm.Data;
 
 namespace VegFarm.Forms
 {
-    public abstract class BaseTabForm : Form, ISaveForm
+    public class BaseTabbedForm : Form, ISaveForm
     {
-        protected CommunicationWithMainForm _communicationForm;
-        protected RibbonControl _ribbonControl;
-        protected Dictionary<string, object> _dataSourceDic = new Dictionary<string, object>();
-        private CommunicationWithMainForm communicationForm;
+        protected CommunicationWithMainForm CommunicationForm;
+        protected RibbonControl RibbonControl;
+        protected Dictionary<string, object> DataSourceDic = new Dictionary<string, object>();
 
         public bool IsLoaded { get; set; }
 
-        public BaseTabForm()
+        public BaseTabbedForm()
         {
             FormClosed += BaseTabForm_FormClosed;
         }
 
-        public BaseTabForm(CommunicationWithMainForm communicationForm) : this()
+        public BaseTabbedForm(CommunicationWithMainForm communicationForm) : this()
         {
-            _communicationForm = communicationForm;
-            MdiParent = _communicationForm.MainForm;
-            _ribbonControl = _communicationForm.RibbonControl;
+            CommunicationForm = communicationForm;
+            MdiParent = CommunicationForm.MainForm;
+            RibbonControl = CommunicationForm.RibbonControl;
             AddRibbonGroup();
         }
 
@@ -34,7 +33,7 @@ namespace VegFarm.Forms
 
         protected void DeleteRibbonGroup()
         {
-            var mainPage = _ribbonControl.Pages["Главная"];
+            var mainPage = RibbonControl.Pages["Главная"];
             var pageGroup = mainPage.Groups.GetGroupByName("EmployeePageGroup");
             if (pageGroup == null)
             {
@@ -60,10 +59,10 @@ namespace VegFarm.Forms
             BringToFront();
         }
 
-        public abstract void AddRibbonGroup();
+        public virtual void AddRibbonGroup() { }
 
-        public abstract void SaveData();
+        public virtual void SaveData() { }
 
-        public abstract void UpdateData();
+        public virtual void UpdateData() { }
     }
 }
