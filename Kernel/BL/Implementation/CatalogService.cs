@@ -18,7 +18,7 @@ namespace VerFarm.Kernel.BL.Implemantation
         {
             _repositories = new Dictionary<string, IBaseService>();
 
-            // побобный способ хоть и уменьшает кол-во кода, не по идеи нехороший тем что, есть объединение generic интерфейсов
+            // подобный способ хоть и уменьшает кол-во кода, не по идеи нехороший тем что, есть объединение generic интерфейсов
             // технически работает, но смысловая нагрузка специфичная. 
             _repositories.Add("employees", new Repository<Employee, EmployeeDTO>(context, mapper));
             _repositories.Add("departments", new Repository<CatalogDepartment, CatalogDepartmentDTO>(context, mapper));
